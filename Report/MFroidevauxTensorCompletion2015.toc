@@ -1,0 +1,10 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}
+\contentsline {section}{\numberline {2}Basics of tensor algebra}{1}{section.2}
+\contentsline {section}{\numberline {3}Alternating Least Squares Algorithm (ALS)}{1}{section.3}
+\contentsline {section}{\numberline {4}GeomCG}{1}{section.4}
+\contentsline {section}{\numberline {5}Results}{1}{section.5}
+\contentsline {subsection}{\numberline {5.1}Bus Sequence}{1}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Inpainting}{1}{subsection.5.2}
+\contentsline {section}{\numberline {6}Conclusion}{1}{section.6}
+\contentsline {section}{\numberline {7}Suggestion for further research}{1}{section.7}

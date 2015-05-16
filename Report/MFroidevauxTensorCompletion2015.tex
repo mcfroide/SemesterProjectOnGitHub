@@ -1,0 +1,148 @@
+\documentclass[a4paper, 11pt]{article} % rajouter l'option [parskip] pour supprimer l'indentation et ajouter un saut de ligne à chaque début de paragraphe (halfparskip pour une demi-ligne)
+\usepackage[utf8]{inputenc}
+%\usepackage[latin1]{inputenc}
+%\usepackage[applemac]{inputenc} % Pour avoir droit aux accents en compilant Mac Os Roman
+%\usepackage{ucs}
+\usepackage[english]{babel} % Pour franciser toutes les commandes automatiques (y compris les césures)
+\usepackage[T1]{fontenc} % Définit les lettres accentuées comme caractères simples, et permet notamment d'éviter certains problèmes de césures 
+\usepackage{lmodern} % Optimise encore l'utilisation des caractères accentués en utilisant l'encodage de police Latin Modern
+\usepackage{textcomp} % Donne accès à certains symboles comme celui de l'euro par exemple
+%\usepackage{amsmath} %Utile pour certaines pinailleries mathématiques. Attention à ne pas le charger si on n'en a pas besoin car il peut modifier certains environnements comme equnarray par exemple.
+%\usepackage{eurosym}
+\usepackage{graphics,graphicx} 	%pour inclure des graphiques
+%\usepackage{subfigure}
+%\usepackage{lscape}
+%\usepackage{textcomp}
+%\usepackage{wrapfig}		%figure dans le texte
+%\usepackage{floatflt}		%figures dans le texte
+%\usepackage{picins}		%figures dans le texte
+
+\usepackage[colorlinks,bookmarks=false,linkcolor=blue,urlcolor=blue]{hyperref} %Pour les liens internet, hypertexte, email
+\usepackage{geometry}		%pour les dimensions de la page
+\usepackage{fancyhdr}		%entête et pied de page personnalisés, pour plus d'info voir ``entête latex'' dans favoris
+\usepackage{amsmath,amssymb} %Utile pour certains symboles mathématiques
+%\setlength{\parindent}{0cm} % Pour supprimer l'indentation en début de paragraphe
+%\setlength{\parskip}{\baselineskip} % Pour programmer un saut de ligne avant chaque paragraphe, solution à éviter
+\usepackage{lastpage}		%pour indiquer le nombre de pages
+\usepackage{multirow}		%tableau sur plusieurs lignes
+\usepackage{color}		
+\usepackage{url}
+%\usepackage{easybmat} Pour dessiner des matrices par blocs
+\usepackage{subcaption}
+\usepackage{pgfplots}
+
+
+%Pour inclure du code C++
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{animate}
+
+
+
+%modification de la mise en page
+\geometry{a4paper,tmargin=33mm,bmargin=33mm,lmargin=28mm,rmargin=28mm}
+\setlength{\parskip}{\medskipamount} 	%saut moyen entre Â§
+\setlength{\parindent}{0pt}		%pas de retrait
+%\pagestyle{headings}        		% Pour mettre des entêtes avec les titres des sections en haut de page
+\pagestyle{fancy}
+\lhead{ \textsc{}} \chead{} \rhead{Marine Froidevaux} \lfoot{\today}\cfoot{\thepage} \rfoot{} \renewcommand{\headrulewidth}{0.4pt} \renewcommand{\footrulewidth}{0.4pt}
+
+
+%%initialisation pour le C++
+%\lstset{language=C++, tabsize=2}
+%\lstset{basicstyle=\small\ttfamily,
+%keywordstyle=\color{blue}\bfseries,
+%commentstyle=\color{red},
+%stringstyle=\color{orange}
+%showstringspaces=wrong}
+
+
+%Initialisation for Matlab
+\lstset{language=Matlab, keywords={break,case,catch,continue,else,elseif,end,for,function,
+global,if,otherwise,persistent,return,switch,try,while},
+basicstyle=\ttfamily,
+keywordstyle=\color{blue},
+commentstyle=\color{red},
+stringstyle=\color{magenta},
+numbers=left, numberstyle=\tiny\color{gray},
+stepnumber=1,
+numbersep=10pt,
+backgroundcolor=\color{white},
+tabsize=3,
+showspaces=false,
+showstringspaces=false, frame=single}
+
+
+
+\def \be {\begin{equation*}}
+\def \ee {\end{equation*}}
+\def \bee {\begin{equation}}
+\def \eee {\end{equation}}
+\def \bm {\begin{pmatrix}}
+\def \em {\end{pmatrix}}
+\def \bd {\begin{displaymath} \left[ \begin{array}}
+\def \ed {\end{array} \right. \end{displaymath}}
+\def \ba {\begin{displaymath} \begin{array}}
+\def \ea {\end{array} \end{displaymath}}
+\def \bv {\begin{verbatim}}
+\def \ev {\end{verbatim}}
+\def \d {\partial}
+\def \i {\infty}
+\def \O {\mathcal{O}}
+
+
+%\renewcommand{\thesubsubsection}{ \alph{subsubsection})}
+%\renewcommand{\thesubsection}{}
+
+
+\newcount\dotcnt\newdimen\deltay
+\def\Ddot#1#2(#3,#4,#5,#6){\deltay=#6\setbox1=\hbox to0pt{\smash{\dotcnt=1
+\kern#3\loop\raise\dotcnt\deltay\hbox to0pt{\hss#2}\kern#5\ifnum\dotcnt<#1
+\advance\dotcnt 1\repeat}\hss}\setbox2=\vtop{\box1}\ht2=#4\box2}
+
+%\makeatletter
+%\renewcommand\thesubsection{}
+%\renewcommand\thesubsubsection{\@arabic\c@section.\@arabic\c@subsection. \alph{subsubsection})}
+%\makeatother
+
+
+\newcommand{\mail}[1]{{\href{mailto:#1}{#1}}}
+\newcommand{\ftplink}[1]{{\href{ftp://#1}{#1}}}
+
+\begin{document}
+\title{3D Tensor Completion\\ \textsc{}}
+%\author{Lukas König et Marine Froidevaux\\ \mail{lukasgeorg.koenig@epfl.ch} \\ \mail{marine.froidevaux@epfl.ch}}
+\author{Marine Froidevaux, Supervisors: Dr. Jonas Ballani and Prof. Daniel Kressner }% \\ \mail{marine.froidevaux@epfl.ch}}
+
+%\date{2011} % Si on ne met pas du tout la commande "date" le maketitle ajoute automatiquement la date du jour à la page de titre. Pour ne pas voir apparaître la date il faut écrire la commande vide \date{}.
+
+
+
+\maketitle
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale=0.5]{electrode}
+%\end{figure}
+%
+%\newpage
+\thispagestyle{empty}
+\pagenumbering{roman}
+\setcounter{tocdepth}{2} % Pour afficher les paragraphes (profondeur 4) dans la table des matières
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+
+
+
+\section{Introduction}
+\section{Basics of tensor algebra}
+\section{Alternating Least Squares Algorithm (ALS)}
+\section{GeomCG}
+\section{Results}
+\subsection{Bus Sequence}
+\subsection{Inpainting}
+
+\section{Conclusion}
+\section{Suggestion for further research}
+\end{document}
