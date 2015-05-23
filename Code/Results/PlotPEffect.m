@@ -4,7 +4,7 @@ close all;
 files={};
 p=[];
 
-colors={'-or', '-ob', '-ok', '-om','-oc'};
+colors={'-or', '-ob', '-ok', '-om','-oc', '-og', '--xr','--xb','--xk'};
 
 % Look for results in the directory
 listing = dir;
