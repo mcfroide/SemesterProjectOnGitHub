@@ -1,7 +1,7 @@
 clear all;
 %clearvars;
 close all;
-display('--- Algo 1: John Hopkins University ---');
+display('--- Algo 1: ALS ---');
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % Missing pixels are marked with -1.
