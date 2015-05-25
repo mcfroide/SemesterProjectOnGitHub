@@ -29,10 +29,8 @@ clear listing temp
 
 % Plot all results in one figure
 figure
-
 for i=1:length(files)
    currentFile=files{i};
-   %pStr{i}=['p=',currentFile(15:end-4),'%'];
    load(currentFile);   
    subplot(3,3,i)
    imshow(double(RecoveredMovie(:,:,15)))

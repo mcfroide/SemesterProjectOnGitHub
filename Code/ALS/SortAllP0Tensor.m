@@ -17,7 +17,8 @@ function [CoordinatesSorted]=SortAllP0Tensor(Movie, N,Frame)
             Pij=Frame(i:i+N-1, j:j+N-1);
             if min(min(Pij))<0
                % Pij is not clean 
-               NbGoodPixels(end+1)=sum(sum(Pij(Pij>=0)));
+               %NbGoodPixels(end+1)=sum(sum(Pij(Pij>=0)));
+               NbGoodPixels(end+1)=sum(sum(Pij>=0));
                %P0List{end+1}=Pij;
                Coordinates(end+1,:)=[i,j];
             end         

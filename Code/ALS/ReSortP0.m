@@ -3,7 +3,7 @@ function SortedCoordinates=ReSortP0(Coordinates, n, Frame, N)
 % n is the index of the Coordinates vector from which entries need to be
 % sorted. 
 
-temp=Coordinates(n:end,:)
+temp=Coordinates(n:end,:);
 NbGoodPixels=zeros(size(temp,1),1);
 
 for k=1:size(temp,1)
@@ -12,7 +12,7 @@ for k=1:size(temp,1)
     i=temp(k,1);
     j=temp(k,2);
     Pij=Frame(i:i+N-1, j:j+N-1); 
-    NbGoodPixels(k)=sum(sum(Pij(Pij>=0)));
+    NbGoodPixels(k)=sum(sum((Pij>=0)));
 end
   [~,I] = sort(NbGoodPixels,'descend'); % sort S
     SortedCoordinates=Coordinates;

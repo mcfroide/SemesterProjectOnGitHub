@@ -1,6 +1,5 @@
 clear all;
-%clearvars;
-%close all;
+close all;
 display('--- Algo 1: ALS ---');
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -14,7 +13,7 @@ N=16; % Size of the Macro-Block
 
 p=30;
 filename=['Movies/BusCorruptedMovieN16p',num2str(p),'.mat']
-load(filename);%Movies/BusCorruptedMovieN16p5.mat
+load(filename);
 
 RecoveredMovie=CorruptedMovie;
 
@@ -72,9 +71,6 @@ for iFrame=1:lengthNFrame_
     
     ErrorFro(iFrame)=FrobeniusRelativeError(OriginalFrame, Frame);
     %PSNR(iFrame)=psnr(Frame, OriginalFrame);
-    
-    %S=svd(Frame);
-    %SVErrorEstimate=SingularValueErrorEstimate(Frame, R3);
 end
 
 %profile viewer
@@ -86,10 +82,8 @@ save(filename, 'ErrorFro', 'RecoveredMovie');
 beep
 
 figure(1)
-%plot(nFrame_,PSNR, '-*r');
 hold on;
 plot(nFrame_,ErrorFro, '--*b');
 xlabel('Frame index');
 ylabel('Relative error (Frobenius norm)');
-%legend('PSNR (dB)','||A_{restored}-A||_F/||A||_F (%)');
 

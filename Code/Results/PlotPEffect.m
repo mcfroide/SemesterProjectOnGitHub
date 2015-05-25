@@ -37,7 +37,6 @@ ylabel('Relative Frobenius Error'); %||A_{restored}-A||_F/||A||_F
 for i=1:length(files)
    currentFile=files{i};
    pStr{i}=['p=',currentFile(15:end-4),'%'];
-   %p=str2num(pStr);
    load(currentFile);   
    plot(1:length(ErrorFro),ErrorFro, colors{i})
 end
