@@ -11,7 +11,7 @@ addpath('./ALS/');
 
 N=16; % Size of the Macro-Block
 
-p=15;
+p=35;
 filename=['Movies/BusCorruptedMovieN16p',num2str(p),'.mat'];
 load(filename);
 
@@ -39,7 +39,7 @@ for iFrame=1:lengthNFrame_
     disp(['---- Frame ', num2str(iFrame),' out of ', num2str(lengthNFrame_),' ----']);
     nFrame=nFrame_(iFrame);
     Frame=double(RecoveredMovie(:, :, nFrame));
-    [Coordinates]=SortAllP0Tensor(RecoveredMovie,N,Frame);
+    [Coordinates]=SortAllP0Tensor(N,Frame);
     nbIt=length(Coordinates);
     
     for n=1:nbIt
@@ -72,8 +72,8 @@ end
 %profile viewer
 %profile off
 
-filename=['Results/Algo1_Bus_N',num2str(N),'p',num2str(p), 'bis.mat'];
-%save(filename, 'ErrorFro', 'RecoveredMovie');
+filename=['../Results/Algo1_Bus_N',num2str(N),'p',num2str(p), '.mat'];
+save(filename, 'ErrorFro', 'RecoveredMovie');
 
 beep
 
