@@ -11,8 +11,8 @@ addpath('./ALS/');
 
 N=16; % Size of the Macro-Block
 
-p=30;
-filename=['Movies/BusCorruptedMovieN16p',num2str(p),'.mat']
+p=15;
+filename=['Movies/BusCorruptedMovieN16p',num2str(p),'.mat'];
 load(filename);
 
 RecoveredMovie=CorruptedMovie;
@@ -34,9 +34,6 @@ nFrame_=1:30;
 lengthNFrame_=length(nFrame_);
 
 ErrorFro=zeros(lengthNFrame_, 1);
-%PSNR=zeros(lengthNFrame_, 1);
-
-%profile on
 
 for iFrame=1:lengthNFrame_
     disp(['---- Frame ', num2str(iFrame),' out of ', num2str(lengthNFrame_),' ----']);
@@ -70,14 +67,13 @@ for iFrame=1:lengthNFrame_
     OriginalFrame=double(OriginalMovie(:,:,iFrame));
     
     ErrorFro(iFrame)=FrobeniusRelativeError(OriginalFrame, Frame);
-    %PSNR(iFrame)=psnr(Frame, OriginalFrame);
 end
 
 %profile viewer
 %profile off
 
-filename=['Results/Algo1_Bus_N',num2str(N),'p',num2str(p), '.mat'];
-save(filename, 'ErrorFro', 'RecoveredMovie');
+filename=['Results/Algo1_Bus_N',num2str(N),'p',num2str(p), 'bis.mat'];
+%save(filename, 'ErrorFro', 'RecoveredMovie');
 
 beep
 

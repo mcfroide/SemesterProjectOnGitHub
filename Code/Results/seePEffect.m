@@ -34,4 +34,6 @@ for i=1:length(files)
    load(currentFile);   
    subplot(3,3,i)
    imshow(double(RecoveredMovie(:,:,15)))
+   title(['p=',num2str(p(i)),'%']);
 end
+

@@ -1,0 +1,7 @@
+\begin{block}{Alternating Least Squares Algorithm}
+%\begin{verbatim}
+\begin{figure}
+\includegraphics[width=0.7\linewidth]{AlgoALS}
+\end{figure}
+%\end{verbatim}
+\end{block}

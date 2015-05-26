@@ -1,0 +1,7 @@
+\beamer@endinputifotherversion {3.33pt}
+\beamer@sectionintoc {1}{Motivations}{3}{0}{1}
+\beamer@sectionintoc {2}{Overview of algebraic tools}{4}{0}{2}
+\beamer@sectionintoc {3}{Description of the problem and algorithms}{6}{0}{3}
+\beamer@subsectionintoc {3}{1}{ALS}{7}{0}{3}
+\beamer@subsectionintoc {3}{2}{GeomCG}{8}{0}{3}
+\beamer@sectionintoc {4}{Examples}{9}{0}{4}
