@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.5.20)  26 MAY 2015 21:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.5.20)  26 MAY 2015 21:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1007,16 +1007,24 @@ File: InpaintingFacade.png Graphic file (type png)
 <use InpaintingFacade.png>
 Package pdftex.def Info: InpaintingFacade.png used on input line 216.
 (pdftex.def)             Requested size: 342.2953pt x 77.53374pt.
- <InpaintingSnow.png, id=281, 458.6736pt x 86.724pt>
-File: InpaintingSnow.png Graphic file (type png)
 
-<use InpaintingSnow.png>
+Overfull \hbox (4.75006pt too wide) in paragraph at lines 216--216
+ [][] 
+ []
+
+<InpaintingSnow.png, id=281, 458.6736pt x 86.724pt>
+File: InpaintingSnow.png Graphic file (type png)
+ <use InpaintingSnow.png>
 Package pdftex.def Info: InpaintingSnow.png used on input line 216.
 (pdftex.def)             Requested size: 342.2953pt x 64.72125pt.
- [12
 
- <./InpaintingFacade.png> <./InpaintingSnow.png>]
-[13
+Overfull \hbox (4.75006pt too wide) in paragraph at lines 216--216
+ [][] 
+ []
+
+[12
+
+ <./InpaintingFacade.png> <./InpaintingSnow.png>] [13
 
 ] [14
 
@@ -1033,7 +1041,8 @@ Package pdftex.def Info: InpaintingSnow.png used on input line 216.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 390.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 390.
- (./presentation.aux)
+
+(./presentation.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 390.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 390.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
@@ -1046,11 +1055,11 @@ LaTeX Font Warning: Size substitutions with differences
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 390.
  ) 
 Here is how much of TeX's memory you used:
- 16980 strings out of 493117
- 328409 string characters out of 6135433
+ 17018 strings out of 493117
+ 329161 string characters out of 6135433
  391436 words of memory out of 5000000
- 19989 multiletter control sequences out of 15000+600000
- 11404 words of font info for 41 fonts, out of 8000000 for 9000
+ 20021 multiletter control sequences out of 15000+600000
+ 14091 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,17n,62p,418b,588s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pf
@@ -1073,7 +1082,7 @@ ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive
 14/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2014
 /texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2014/texmf-dis
 t/fonts/type1/urw/times/utmr8a.pfb>
-Output written on presentation.pdf (14 pages, 1189782 bytes).
+Output written on presentation.pdf (14 pages, 1190439 bytes).
 PDF statistics:
  364 PDF objects out of 1000 (max. 8388607)
  282 compressed objects within 3 object streams

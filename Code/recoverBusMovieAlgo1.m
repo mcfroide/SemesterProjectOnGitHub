@@ -70,7 +70,7 @@ end
 filename=['../Results/recoverBusMovie.mat'];
 save(filename,'CorruptedMovie', 'RecoveredMovie');
 
-writerObj = VideoWriter('../Presentation/recoveredBus.avi');
+writerObj = VideoWriter('../Presentation/recoveredBus.avi'); %'FrameRate',20
 open(writerObj);
 
 figure
@@ -90,7 +90,7 @@ end
 close(writerObj);
 
 
-writerObj = VideoWriter('../Presentation/corruptedBus.avi');
+writerObj = VideoWriter('../Presentation/corruptedBus.avi'); %'FrameRate',20
 open(writerObj);
 
 figure
