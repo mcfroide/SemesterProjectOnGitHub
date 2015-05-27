@@ -80,6 +80,7 @@
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage{multimedia}
 \usepackage{hyperref}
+\usepackage{dsfont}
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -103,10 +104,10 @@
 \titlepage % Print the title page as the first slide
 \end{frame}
 
-\begin{frame}
-\frametitle{Overview} % Table of contents slide, comment this block out to remove it
-\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
-\end{frame}
+%\begin{frame}
+%\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+%\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+%\end{frame}
 
 %----------------------------------------------------------------------------------------
 %	PRESENTATION SLIDES
@@ -150,7 +151,7 @@
 \frametitle{Tucker Decomposition}
 \begin{itemize}
 \item Core tensor $\mathcal{G}\in \mathbb{R}^{R_1\times R_2\times R_3}$, principal components in each mode $A_1\in \mathbb{R}^{I_1\times R_1},A_2\in \mathbb{R}^{I_2\times R_2}, A_3\in \mathbb{R}^{I_3\times R_3}$:\\ \begin{center} $ \mathcal{X} =  \mathcal{G} \times_1 A_1\times_2 A_2 \times_3 A_3$\end{center}
-\item Higher-Order SVD: Find components that best capture the variation in mode-$n$, independently of other modes%:\\
+\item Higher-Order SVD: Find a rank-$[R_1,R_2,R_3]$ core tensor and corresponding components that best capture the variation in mode-$n$, independently of other modes%:\\
 %\begin{minipage}{0.48 \linewidth}
 %\centering
 %\begin{figure}\includegraphics[scale=0.5]{HOSVD.pdf} \end{figure}
@@ -175,13 +176,18 @@
 
 \section{Description of the problem and algorithms} 
 \begin{frame}
-\frametitle{Problem as in ALS}
+\frametitle{Movie reconstruction and Image Inpainting}
 %MB and stuff
 \begin{itemize}
 \item Each frame is divided into Macro-Blocks (MBs) of size $N$ 
 \item For each incomplete Macro-Block $P^0$, look for $K-1$ complete MBs minimizing\\
 \begin{center} $S_i=\| P^0_{\Omega}-P^i_{\Omega}\|$ \end{center}
 \item Stack all selected $P^i$ into a tensor $\mathcal{X}$ with $P^0$ at the top.
+\item Ideally $\mathcal{X}=\mathcal{X}_l+\mathcal{E}=P\times_3\mathds{1}+\mathcal{E}$\\
+\item Tucker decomposition: $\mathcal{X}_l=\mathcal{G}\times_1 A_1\times_2 A_2\times_3 A_3$\\
+$\Rightarrow P=\mathcal{G}\times_1 A_1\times_2 A_2$ and $A_3=\mathds{1}$
+\item Find $\mathcal{X}_l$ a $[R_1,R_2,R_3]$-rank approximation of $\mathcal{X}$, with $R_3$ small.
+\item Two algorithms: HOSVD with Alternating Least Square and GeomCG
 \end{itemize}
 
 %Inpaiting
