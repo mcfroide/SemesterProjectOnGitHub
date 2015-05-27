@@ -9,10 +9,10 @@ display('--- Algo 1: ALS ---');
 
 addpath('./ALS/');
 
-N=16; % Size of the Macro-Block
+N=8; % Size of the Macro-Block
 
 p=15;
-filename=['Movies/BusCorruptedMovieN16p',num2str(p),'.mat'];
+filename=['Movies/BusCorruptedMovieN8p',num2str(p),'.mat'];
 load(filename);
 
 RecoveredMovie=CorruptedMovie;
@@ -67,45 +67,76 @@ for iFrame=1:lengthNFrame_
     OriginalFrame=double(OriginalMovie(:,:,iFrame));
 end
 
-filename=['../Results/recoverBusMovie.mat'];
+filename=['../Results/recoverBusMovieN8.mat'];
 save(filename,'CorruptedMovie', 'RecoveredMovie');
 
-writerObj = VideoWriter('../Presentation/recoveredBus.avi'); %'FrameRate',20
+writerObj = VideoWriter('../Presentation/recoveredBusN8.avi'); %'FrameRate',20
 open(writerObj);
 
-figure
+fh=figure
 Frame=double(RecoveredMovie(:,:,1));
+corruptedFrame=double(CorruptedMovie(:,:,1));
+subplot(1,2,1)
+imshow(corruptedFrame)
+subplot(1,2,2)
 imshow(Frame);
-print  -dpng '../Presentation/myrecoveredposter.png'
+print  -dpng '../Presentation/myposter.png'
 axis tight
 set(gca,'nextplot','replacechildren');
 
 for i = 2:lengthNFrame_
     Frame=double(RecoveredMovie(:,:,i));
-    imshow(Frame);
-    frame = getframe;
-    writeVideo(writerObj,frame);
-end
-
-close(writerObj);
-
-
-writerObj = VideoWriter('../Presentation/corruptedBus.avi'); %'FrameRate',20
-open(writerObj);
-
-figure
-corruptedFrame=double(CorruptedMovie(:,:,1));
-imshow(corruptedFrame);
-print  -dpng '../Presentation/mycorruptedposter.png'
-axis tight
-set(gca,'nextplot','replacechildren');
-
-for i = 2:lengthNFrame_
     corruptedFrame=double(CorruptedMovie(:,:,i));
-    imshow(corruptedFrame);
-    frame = getframe;
+    subplot(1,2,1)
+    imshow(corruptedFrame)
+    subplot(1,2,2)
+    imshow(Frame);
+    frame = getframe(fh);
     writeVideo(writerObj,frame);
 end
 
 close(writerObj);
+
+
+% filename=['../Results/recoverBusMovie.mat'];
+% save(filename,'CorruptedMovie', 'RecoveredMovie');
+% 
+% writerObj = VideoWriter('../Presentation/recoveredBus.avi'); %'FrameRate',20
+% open(writerObj);
+% 
+% figure
+% Frame=double(RecoveredMovie(:,:,1));
+% imshow(Frame);
+% print  -dpng '../Presentation/myrecoveredposter.png'
+% axis tight
+% set(gca,'nextplot','replacechildren');
+% 
+% for i = 2:lengthNFrame_
+%     Frame=double(RecoveredMovie(:,:,i));
+%     imshow(Frame);
+%     frame = getframe;
+%     writeVideo(writerObj,frame);
+% end
+% 
+% close(writerObj);
+% 
+% 
+% writerObj = VideoWriter('../Presentation/corruptedBus.avi'); %'FrameRate',20
+% open(writerObj);
+% 
+% figure
+% corruptedFrame=double(CorruptedMovie(:,:,1));
+% imshow(corruptedFrame);
+% print  -dpng '../Presentation/mycorruptedposter.png'
+% axis tight
+% set(gca,'nextplot','replacechildren');
+% 
+% for i = 2:lengthNFrame_
+%     corruptedFrame=double(CorruptedMovie(:,:,i));
+%     imshow(corruptedFrame);
+%     frame = getframe;
+%     writeVideo(writerObj,frame);
+% end
+% 
+% close(writerObj);
 

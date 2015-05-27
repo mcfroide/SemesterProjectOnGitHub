@@ -2,12 +2,12 @@ clear all;
 close all;
 clc;
 
-N=16; % Size of Macro-Block 
+N=8; % Size of Macro-Block 
 
 load('../Movies/BusResizedCropedMovie.mat');
 
 OriginalMovie=mov;
-p=[0.05:0.1:0.65]
+p=[0.15]
 
 figure
 
@@ -18,8 +18,7 @@ for i=1:length(p)
 
     imshow(double(CorruptedMovie(:,:,20)));
     drawnow
-    
 
-    filename=['../Movies/BusCorruptedMovieN16p',strNb ,'.mat']
+    filename=['../Movies/BusCorruptedMovieN8p',strNb ,'.mat']
     %save(filename,'OriginalMovie','CorruptedMovie');
 end

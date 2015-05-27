@@ -56,9 +56,10 @@ end
 % imshow(double(P0_new))
 % subplot(2,3,4:6)
 % plot(err);
+% set(gca,'XTick',1:length(err));
 % hold on;
 % grid on;
 % xlabel('Iteration');
-% ylabel('Relative Error in Frobenius norm');
+% ylabel('Relative Error on X_L');
 % pause
-return
+ return

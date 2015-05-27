@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.5.20)  26 MAY 2015 21:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.5.20)  27 MAY 2015 13:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -938,95 +938,129 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 
 ] [3
 
-] [4
-
-] [5
-
-] [6
-
 ]
-\openout4 = `presentation.vrb'.
+LaTeX Font Info:    Try loading font information for U+msa on input line 147.
 
- (./presentation.vrb
-<AlgoALS.pdf, id=106, 227.3923pt x 167.99954pt>
-File: AlgoALS.pdf Graphic file (type pdf)
- <use AlgoALS.pdf>
-Package pdftex.def Info: AlgoALS.pdf used on input line 4.
-(pdftex.def)             Requested size: 239.60567pt x 177.0225pt.
-) [7
-
- <./AlgoALS.pdf>] [8
-
-] <mycorruptedposter.png, id=253, 578.16pt x 433.62pt>
-File: mycorruptedposter.png Graphic file (type png)
-
-<use mycorruptedposter.png>
-Package pdftex.def Info: mycorruptedposter.png used on input line 189.
-(pdftex.def)             Requested size: 173.44933pt x 130.087pt.
-
-Overfull \hbox (9.14905pt too wide) in paragraph at lines 189--189
-[][][][]
- []
-
-LaTeX Font Info:    Try loading font information for U+msa on input line 189.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 189.
+LaTeX Font Info:    Try loading font information for U+msb on input line 147.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 189.
+line 147.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
-) <myrecoveredposter.png, id=256, 578.16pt x 433.62pt>
-File: myrecoveredposter.png Graphic file (type png)
+) [4
 
-<use myrecoveredposter.png>
-Package pdftex.def Info: myrecoveredposter.png used on input line 189.
-(pdftex.def)             Requested size: 173.44933pt x 130.087pt.
+] [5
 
-Overfull \hbox (9.14905pt too wide) in paragraph at lines 189--189
-[][][][]
+]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb <AlgoHOSVD.pdf, id=106, 195.80376pt x 68.4459pt>
+File: AlgoHOSVD.pdf Graphic file (type pdf)
+
+<use AlgoHOSVD.pdf>
+Package pdftex.def Info: AlgoHOSVD.pdf used on input line 4.
+(pdftex.def)             Requested size: 205.37926pt x 71.7951pt.
+ <HOSVD.pdf, id=107, 280.29729pt x 110.13687pt>
+File: HOSVD.pdf Graphic file (type pdf)
+
+<use HOSVD.pdf>
+Package pdftex.def Info: HOSVD.pdf used on input line 8.
+(pdftex.def)             Requested size: 168.17966pt x 66.08263pt.
+) [6
+
+ <./AlgoHOSVD.pdf> <./HOSVD.pdf>] [7
+
+]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb
+<AlgoALS.pdf, id=864, 227.3923pt x 167.99954pt>
+File: AlgoALS.pdf Graphic file (type pdf)
+ <use AlgoALS.pdf>
+Package pdftex.def Info: AlgoALS.pdf used on input line 4.
+(pdftex.def)             Requested size: 239.60567pt x 177.0225pt.
+) [8
+
+ <./AlgoALS.pdf>] [9
+
+] <myposter.png, id=994, 578.16pt x 433.62pt>
+File: myposter.png Graphic file (type png)
+ <use myposter.png>
+Package pdftex.def Info: myposter.png used on input line 230.
+(pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
+
+Overfull \vbox (20.40549pt too high) detected at line 230
  []
 
-[9
-
- <./mycorruptedposter.png (PNG copy)> <./myrecoveredposter.png (PNG copy)>]
 [10
 
-] [11
+ <./myposter.png (PNG copy)>]
+<pEffectPlot.png, id=1003, 562.1pt x 421.575pt>
+File: pEffectPlot.png Graphic file (type png)
+ <use pEffectPlot.png>
+Package pdftex.def Info: pEffectPlot.png used on input line 238.
+(pdftex.def)             Requested size: 239.60567pt x 179.70413pt.
+ [11
 
-] <InpaintingFacade.png, id=279, 461.5644pt x 104.5506pt>
-File: InpaintingFacade.png Graphic file (type png)
+ <./pEffectPlot.png (PNG copy)>]
+<XInitConvergence.png, id=1011, 562.1pt x 421.575pt>
+File: XInitConvergence.png Graphic file (type png)
 
-<use InpaintingFacade.png>
-Package pdftex.def Info: InpaintingFacade.png used on input line 216.
-(pdftex.def)             Requested size: 342.2953pt x 77.53374pt.
+<use XInitConvergence.png>
+Package pdftex.def Info: XInitConvergence.png used on input line 256.
+(pdftex.def)             Requested size: 180.73131pt x 135.54358pt.
 
-Overfull \hbox (4.75006pt too wide) in paragraph at lines 216--216
- [][] 
+Overfull \hbox (16.43103pt too wide) in paragraph at lines 256--256
+ [] 
  []
 
-<InpaintingSnow.png, id=281, 458.6736pt x 86.724pt>
-File: InpaintingSnow.png Graphic file (type png)
- <use InpaintingSnow.png>
-Package pdftex.def Info: InpaintingSnow.png used on input line 216.
-(pdftex.def)             Requested size: 342.2953pt x 64.72125pt.
+<XInitRandom.png, id=1012, 562.1pt x 421.575pt>
+File: XInitRandom.png Graphic file (type png)
+ <use XInitRandom.png>
+Package pdftex.def Info: XInitRandom.png used on input line 256.
+(pdftex.def)             Requested size: 180.73131pt x 135.54358pt.
 
-Overfull \hbox (4.75006pt too wide) in paragraph at lines 216--216
- [][] 
+Overfull \hbox (16.43103pt too wide) in paragraph at lines 256--256
+ [] 
  []
 
 [12
 
- <./InpaintingFacade.png> <./InpaintingSnow.png>] [13
+ <./XInitConvergence.png (PNG copy)> <./XInitRandom.png (PNG copy)>]
+<InpaintingFacade.png, id=1020, 461.5644pt x 104.5506pt>
+File: InpaintingFacade.png Graphic file (type png)
 
-] [14
+<use InpaintingFacade.png>
+Package pdftex.def Info: InpaintingFacade.png used on input line 273.
+(pdftex.def)             Requested size: 342.2953pt x 77.53374pt.
+
+Overfull \hbox (4.75006pt too wide) in paragraph at lines 273--273
+ [][] 
+ []
+
+<InpaintingSnow.png, id=1022, 458.6736pt x 86.724pt>
+File: InpaintingSnow.png Graphic file (type png)
+ <use InpaintingSnow.png>
+Package pdftex.def Info: InpaintingSnow.png used on input line 273.
+(pdftex.def)             Requested size: 342.2953pt x 64.72125pt.
+
+Overfull \hbox (4.75006pt too wide) in paragraph at lines 273--273
+ [][] 
+ []
+
+[13
+
+ <./InpaintingFacade.png> <./InpaintingSnow.png>] [14
+
+] [15
 
  </usr/local/texlive/2014/texmf-dist/tex/latex/beamer/art/beamericonarticle.pdf
 >]
@@ -1039,53 +1073,70 @@ Overfull \hbox (4.75006pt too wide) in paragraph at lines 216--216
 \tf@snm=\write8
 \openout8 = `presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 390.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 390.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 447.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 447.
 
 (./presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 390.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 390.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 447.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 447.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
-(rerunfilecheck)             Checksum: 1DF600F1F7D9ECFD36419810BB15F4CE;334.
+(rerunfilecheck)             Checksum: D9733735A45EDEF16AB247F84B76288F;334.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 390.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 447.
  ) 
 Here is how much of TeX's memory you used:
- 17018 strings out of 493117
- 329161 string characters out of 6135433
- 391436 words of memory out of 5000000
- 20021 multiletter control sequences out of 15000+600000
+ 17053 strings out of 493117
+ 329763 string characters out of 6135433
+ 392436 words of memory out of 5000000
+ 20049 multiletter control sequences out of 15000+600000
  14091 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,17n,62p,418b,588s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pf
 b></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
-sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr
-/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr
-/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
-ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loca
-l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/t
-exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/te
-xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/tex
-live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texli
-ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive
-/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/
-2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/local/texlive/2
-014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/20
-14/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2014
-/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2014/texmf-dis
-t/fonts/type1/urw/times/utmr8a.pfb>
-Output written on presentation.pdf (14 pages, 1190439 bytes).
+></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><
+/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></u
+sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
+r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr
+/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/l
+ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/loc
+al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local
+/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/t
+exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/tex
+live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/tex
+live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texli
+ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/
+2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/201
+4/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2014/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2014/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2014/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2014/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2014/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2014/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2014/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2014/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2014/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmssi9.pfb></usr/local/texlive/2014/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2014/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2014/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/pu
+blic/amsfonts/euler/eusb10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/
+public/amsfonts/euler/eusb7.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1
+/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2014/texmf-dist/fonts/t
+ype1/public/stmaryrd/stmary10.pfb></usr/local/texlive/2014/texmf-dist/fonts/typ
+e1/urw/times/utmb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/tim
+es/utmr8a.pfb>
+Output written on presentation.pdf (15 pages, 1852044 bytes).
 PDF statistics:
- 364 PDF objects out of 1000 (max. 8388607)
- 282 compressed objects within 3 object streams
- 37 named destinations out of 1000 (max. 500000)
- 156 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1131 PDF objects out of 1200 (max. 8388607)
+ 841 compressed objects within 9 object streams
+ 39 named destinations out of 1000 (max. 500000)
+ 176 words of extra memory for PDF output out of 10000 (max. 10000000)
 

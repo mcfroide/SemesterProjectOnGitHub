@@ -6,6 +6,20 @@ p=[];
 
 colors={'-or', '-ob', '-ok', '-om','-oc', '-og', '--xr','--xb','--xk'};
 
+% load 'Algo1_Bus_N16p15.mat';
+% 
+% n=8;
+% s=size(RecoveredMovie);
+% Ni=s(1);
+% Nj=s(2);
+% 
+% clear ErrorFro, RecoveredMovie;
+% 
+% nbBlocksPerColumn=floor(Ni/n);
+% nbBlocksPerRow=floor(Nj/n);
+% nbBlocks=nbBlocksPerColumn*nbBlocksPerRow;
+
+
 % Look for results in the directory
 listing = dir;
 for i=length(listing):-1:1
@@ -32,10 +46,11 @@ figure
 hold on;
 grid on;
 xlabel('Frame index');
-ylabel('Relative Frobenius Error'); %||A_{restored}-A||_F/||A||_F
+ylabel('Relative error'); %||A_{restored}-A||_F/||A||_F
 
 for i=1:length(files)
    currentFile=files{i};
+   %nbCorruptedBlocks=round(p(i)*nbBlocks);
    pStr{i}=['p=',currentFile(15:end-4),'%'];
    load(currentFile);   
    plot(1:length(ErrorFro),ErrorFro, colors{i})

@@ -133,24 +133,60 @@
 %\subsection{Subsection Example} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
 
 \begin{frame}
-\frametitle{Matricisation}
-How to matricise
+\frametitle{Norm and matricization}
+\begin{itemize}
+\item Generalization of Frobenius norm for $\mathcal{X}\in \mathbb{R}^{I_1\times I_2 \times I_3}$:\\ \begin{center} $\| \mathcal{X} \|=\sqrt{\sum\limits_{i=1}^{I_1}\sum\limits_{j=1}^{I_2}\sum\limits_{k=3}^{I_3}x_{i,j,k}^2}$\end{center}
+\item Unfolding $ \mathcal{X}$ in the $i^{th}$ dimension:\\ \begin{center} $X_{(i)}\in \mathbb{R}^{I_i\times (I_j\cdot I_k)}$, $j\neq i,$ $k\neq i,j$  \end{center}
+\item $n$-mode product:\\ \begin{center} $\mathcal{Y}=\mathcal{X}\times_n U \iff Y_{(n)}=UX_{(n)}$  \end{center}
+%\item rank of a tensor p464
+\item $n$-rank of a tensor: \\ \begin{center} $rank_n(\mathcal{X}):=$ rank of $X_{(n)}$
+%$\mathcal{X}$ is rank-$[R_1, R_2, R_3]$ if $R_n=rank_n(\mathcal{X})$ for $i=1,2,3$.
+%$[R_1, R_2, R_3] $
+\end{center}
+\end{itemize} 
 \end{frame}
 
 \begin{frame}
-\frametitle{Tucker Format}
-Tucker
+\frametitle{Tucker Decomposition}
+\begin{itemize}
+\item Core tensor $\mathcal{G}\in \mathbb{R}^{R_1\times R_2\times R_3}$, principal components in each mode $A_1\in \mathbb{R}^{I_1\times R_1},A_2\in \mathbb{R}^{I_2\times R_2}, A_3\in \mathbb{R}^{I_3\times R_3}$:\\ \begin{center} $ \mathcal{X} =  \mathcal{G} \times_1 A_1\times_2 A_2 \times_3 A_3$\end{center}
+\item Higher-Order SVD: Find components that best capture the variation in mode-$n$, independently of other modes%:\\
+%\begin{minipage}{0.48 \linewidth}
+%\centering
+%\begin{figure}\includegraphics[scale=0.5]{HOSVD.pdf} \end{figure}
+%\end{minipage}
+%\begin{minipage}{0.48 \linewidth}
+%\centering
+%\begin{figure}\includegraphics[scale=0.7]{AlgoHOSVD.pdf} \end{figure}
+%\end{minipage}
+\end{itemize}
 \end{frame}
 
+\begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
+\frametitle{Higher Order Singular Value Decomposition}
+\begin{block}{}
+\begin{figure}
+\includegraphics[width=0.6\linewidth]{AlgoHOSVD}
+\end{figure}
+\end{block}
+\centering
+\begin{figure}\includegraphics[scale=0.6]{HOSVD.pdf} \end{figure}
+\end{frame}
 
 \section{Description of the problem and algorithms} 
 \begin{frame}
 \frametitle{Problem as in ALS}
-MB and stuff
+%MB and stuff
+\begin{itemize}
+\item Each frame is divided into Macro-Blocks (MBs) of size $N$ 
+\item For each incomplete Macro-Block $P^0$, look for $K-1$ complete MBs minimizing\\
+\begin{center} $S_i=\| P^0_{\Omega}-P^i_{\Omega}\|$ \end{center}
+\item Stack all selected $P^i$ into a tensor $\mathcal{X}$ with $P^0$ at the top.
+\end{itemize}
 
-Inpaiting
+%Inpaiting
 
-Two Algorithms
+%Two Algorithms
 \end{frame}
 
 \subsection{ALS}
@@ -178,24 +214,45 @@ Optimization on the manifold
 
 \begin{frame}
 \frametitle{Movie reconstruction}
-\begin{minipage}{0.48 \linewidth}
-\movie[externalviewer]{\includegraphics[scale=0.3]{mycorruptedposter.png}}{corruptedBus.avi}
-\hyperlinkmovie[poster]{corruptedBus.avi}{}
-\end{minipage}
-\begin{minipage}{0.48 \linewidth}
-\movie[externalviewer]{\includegraphics[scale=0.3]{myrecoveredposter.png}}{recoveredBus.avi}
-\hyperlinkmovie[poster]{recoveredBus.avi}{}
-\end{minipage}
+Macro-Block size: N=8
+%\begin{minipage}{0.48 \linewidth}
+%\movie[externalviewer]{\includegraphics[scale=0.3]{mycorruptedposter.png}}{corruptedBus.avi}
+%\hyperlinkmovie[poster]{corruptedBus.avi}{}
+%\end{minipage}
+%\begin{minipage}{0.48 \linewidth}
+%\movie[externalviewer]{\includegraphics[scale=0.3]{myrecoveredposter.png}}{recoveredBus.avi}
+%\hyperlinkmovie[poster]{recoveredBus.avi}{}
+%\end{minipage}
+\begin{center}
+\movie[externalviewer]{\includegraphics[scale=0.5]{myposter.png}}{recoveredBusN8.avi}
+\hyperlinkmovie[poster]{recoveredBusN8.avi}{}
+\end{center}
 \end{frame}
 
 \begin{frame}
-\frametitle{Error Plot}
-Error plot, convergence in one iteration
+%\frametitle{Error Plot}
+Relative error = $\frac{\| F_{original}-F_{restored} \|}{\|F_{original} \|}$
+\begin{figure}
+\includegraphics[width=0.7\linewidth]{pEffectPlot}
+\end{figure}
 \end{frame}
 
 \begin{frame}
 \frametitle{Importance of initial guess}
-Plot initial guess
+\begin{minipage}{0.48 \linewidth}
+\centering
+Educated guess
+\begin{figure}
+\includegraphics[width=1.1\linewidth]{XInitConvergence}
+\end{figure}
+\end{minipage}
+\begin{minipage}{0.48 \linewidth}
+\centering
+Random guess
+\begin{figure}
+\includegraphics[width=1.1\linewidth]{XInitRandom}
+\end{figure}
+\end{minipage}
 \end{frame}
 
 \begin{frame}
