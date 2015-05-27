@@ -1,0 +1,10 @@
+clear all;
+close all;
+
+load '../Results/ComparisonBusAlgo2.mat';
+
+mov2=RecoveredMovie;
+err2=ErrorFro;
+
+
+

@@ -11,7 +11,7 @@ addpath('./ALS/');
 
 N=16; % Size of the Macro-Block
 
-p=5;
+p=15;
 filename=['Movies/BusCorruptedMovieN16p',num2str(p),'.mat'];
 load(filename);
 
@@ -22,7 +22,7 @@ Mrows=s(1);
 Mcols=s(2);
 Mframe=s(3);
 
-R1=N; R2=N; R3=3;
+R1=N; R2=N; R3=1;
 
 sigma=1e-2; itMax=60; sigmaIterative=5e-6;
 nbNeighbours=5; % Nb of nearest previously recovered and corrupted future frames used in the tensor building step
@@ -66,24 +66,24 @@ for iFrame=1:lengthNFrame_
             Frame(i:i+N-1, j:j+N-1)=P0_new;
             
             P0_orgn=OriginalFrame(i:i+N-1, j:j+N-1);
-            ErrorIt(n)=FrobeniusRelativeError(P0_orgn, P0_new);
+            %ErrorIt(n)=FrobeniusRelativeError(P0_orgn, P0_new);
         end
     end
-    ErrorFrame(iFrame)=mean(ErrorIt);
-    %ErrorFro(iFrame)=FrobeniusRelativeError(OriginalFrame, Frame);
+    %ErrorFrame(iFrame)=mean(ErrorIt);
+    ErrorFro(iFrame)=FrobeniusRelativeError(OriginalFrame, Frame);
 end
 
 %profile viewer
 %profile off
 
-filename=['../Results/Algo1_Bus_N',num2str(N),'p',num2str(p), 'NewError.mat'];
-save(filename, 'ErrorFrame', 'RecoveredMovie');
+filename=['../Results/ComparisonBusAlgo1.mat'];
+save(filename, 'ErrorFro','RecoveredMovie'); 
 
 beep
 
-figure(1)
-hold on;
-plot(nFrame_,ErrorFrame, '--*b');
-xlabel('Frame index');
-ylabel('Mean relative error');
+% figure(1)
+% hold on;
+% plot(nFrame_,ErrorFrame, '--*b');
+% xlabel('Frame index');
+% ylabel('Mean relative error');
 

@@ -22,8 +22,12 @@ N=16; % Size of the Macro-Block
 % CorruptedMovie=CorruptRandomly(OriginalMovie,N/2,fraction);
 % RecoveredMovie=CorruptedMovie;
 
-load BusCorruptedMovie015.mat
+%load BusCorruptedMovie015.mat
 %load BusCorrupted&CropedMovieN16p015.mat
+p=15;
+filename=['Movies/BusCorruptedMovieN16p',num2str(p),'.mat'];
+load(filename);
+
 
 RecoveredMovie=CorruptedMovie;
 
@@ -35,7 +39,7 @@ n = [Mrows Mcols Mframe];
 
 K=11;
 
-R1=N; R2=N; R3=1;
+R1=N/2; R2=N/2; R3=1;
 r = [R1, R2, R3];
 
 opts = struct( 'maxiter', 60, 'tol', 1e-6, 'verbose', false );
@@ -45,7 +49,7 @@ opts = struct( 'maxiter', 60, 'tol', 1e-6, 'verbose', false );
 nbNeighbours=5; % Nb of nearest previously recovered and corrupted future frames used in the tensor building step
 % Set to -1 to use all frames
 
-nFrame_=1;
+nFrame_=1:6;
 lengthNFrame_=length(nFrame_);
 
 ErrorFro=zeros(lengthNFrame_, 1);
@@ -55,10 +59,10 @@ for iFrame=1:lengthNFrame_
     disp(['---- Frame ', num2str(iFrame),' out of ', num2str(lengthNFrame_),' ----']);
     nFrame=nFrame_(iFrame);
     Frame=double(RecoveredMovie(:, :, nFrame));
-    [Coordinates]=SortAllP0Tensor(RecoveredMovie,N,Frame);
+    [Coordinates]=SortAllP0Tensor(N,Frame);
     nbIt=length(Coordinates);
     
-    for n=1:nbIt/6
+    for n=1:nbIt
         if (mod(n,20)==1)
             display(['Iteration ',num2str(n),' out of ', num2str(nbIt)]);
         end
@@ -107,12 +111,14 @@ for iFrame=1:lengthNFrame_
     OriginalFrame=double(OriginalMovie(:,:,nFrame));
     
     ErrorFro(iFrame)=FrobeniusRelativeError(OriginalFrame, Frame);
-    PSNR(iFrame)=psnr(Frame, OriginalFrame);
+    %PSNR(iFrame)=psnr(Frame, OriginalFrame);
     
     %S=svd(Frame);
     %SVErrorEstimate=SingularValueErrorEstimate(Frame, R3);
 end
 
+filename=['../Results/ComparisonBusAlgo2ReducedRank.mat'];
+save(filename, 'ErrorFro','RecoveredMovie'); 
 
 figure
 subplot(1,2,1)

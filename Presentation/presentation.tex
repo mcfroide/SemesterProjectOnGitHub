@@ -134,22 +134,24 @@
 %\subsection{Subsection Example} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
 
 \begin{frame}
-\frametitle{Norm and matricization}
+\frametitle{Matricization}
 \begin{itemize}
 \item Generalization of Frobenius norm for $\mathcal{X}\in \mathbb{R}^{I_1\times I_2 \times I_3}$:\\ \begin{center} $\| \mathcal{X} \|=\sqrt{\sum\limits_{i=1}^{I_1}\sum\limits_{j=1}^{I_2}\sum\limits_{k=3}^{I_3}x_{i,j,k}^2}$\end{center}
 \item Unfolding $ \mathcal{X}$ in the $i^{th}$ dimension:\\ \begin{center} $X_{(i)}\in \mathbb{R}^{I_i\times (I_j\cdot I_k)}$, $j\neq i,$ $k\neq i,j$  \end{center}
-\item $n$-mode product:\\ \begin{center} $\mathcal{Y}=\mathcal{X}\times_n U \iff Y_{(n)}=UX_{(n)}$  \end{center}
-%\item rank of a tensor p464
-\item $n$-rank of a tensor: \\ \begin{center} $rank_n(\mathcal{X}):=$ rank of $X_{(n)}$
-%$\mathcal{X}$ is rank-$[R_1, R_2, R_3]$ if $R_n=rank_n(\mathcal{X})$ for $i=1,2,3$.
-%$[R_1, R_2, R_3] $
+\begin{center}
+\includegraphics[scale=0.7]{Matricize}
 \end{center}
+\item $n$-mode product of $\mathcal{X}$ with $U \in \mathbb{R}^{J\times I_n}$: $\mathcal{Y} \in  \mathbb{R}^{I_1\times...\times I_{n-1}\times J \times I_{n+1}... \times I_N} $\\ \begin{center} $\mathcal{Y}=\mathcal{X}\times_n U \iff Y_{(n)}=UX_{(n)}$  \end{center}
+%\item rank of a tensor p464
 \end{itemize} 
 \end{frame}
 
 \begin{frame}
 \frametitle{Tucker Decomposition}
 \begin{itemize}
+%$\mathcal{X}$ is rank-$[R_1, R_2, R_3]$ if $R_n=rank_n(\mathcal{X})$ for $i=1,2,3$.
+%$[R_1, R_2, R_3] $
+\item $n$-rank of a tensor: \\ \begin{center} $rank_n(\mathcal{X}):=$ rank of $X_{(n)}$\end{center}
 \item Core tensor $\mathcal{G}\in \mathbb{R}^{R_1\times R_2\times R_3}$, principal components in each mode $A_1\in \mathbb{R}^{I_1\times R_1},A_2\in \mathbb{R}^{I_2\times R_2}, A_3\in \mathbb{R}^{I_3\times R_3}$:\\ \begin{center} $ \mathcal{X} =  \mathcal{G} \times_1 A_1\times_2 A_2 \times_3 A_3$\end{center}
 \item Higher-Order SVD: Find a rank-$[R_1,R_2,R_3]$ core tensor and corresponding components that best capture the variation in mode-$n$, independently of other modes%:\\
 %\begin{minipage}{0.48 \linewidth}
@@ -212,9 +214,12 @@ $\Rightarrow P=\mathcal{G}\times_1 A_1\times_2 A_2$ and $A_3=\mathds{1}$
 
 \begin{frame}
 \frametitle{GeomCG}
-Optimization on the manifold
+\begin{itemize}
+\item Look for $\min\limits_{\mathcal{T}} \frac{1}{2}\| P_{\Omega} \mathcal{T}-P_{\Omega} \mathcal{X} \|$ with \begin{center}$\mathcal{T}\in \mathcal{M}_r:=\{ \mathcal{T} \in \mathbb{R}^{I_1\times I_2\times I_3} | rank(\mathcal{T})=[r_1, r_2, r_3] \}$ \end{center}
+\item $\mathcal{M}_r$ is a smooth manifold
+\item Riemannian optimization on the manifold
+\end{itemize}
 \end{frame}
-
 
 \section{Examples}
 
@@ -237,9 +242,9 @@ Macro-Block size: N=8
 
 \begin{frame}
 %\frametitle{Error Plot}
-Relative error = $\frac{\| F_{original}-F_{restored} \|}{\|F_{original} \|}$
+Mean relative error = $\dfrac{1}{M}\sum_{i=1}^{M}\frac{\| P^i_{original}-P^i_{restored} \|}{\|P^i_{original} \|}$
 \begin{figure}
-\includegraphics[width=0.7\linewidth]{pEffectPlot}
+\includegraphics[width=0.65\linewidth]{pEffectPlotNew}
 \end{figure}
 \end{frame}
 
@@ -285,9 +290,7 @@ Compare results for rank 1
 
 \section*{References}
 \begin{frame}
-%\frametitle{}
-
-
+\frametitle{References}
 \footnotesize{
 \begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
 \bibitem[ALS]{} D.T. Nguyen, M.D. Dao, T.D. Tran, \textit{The John Hopkins University}, 2011

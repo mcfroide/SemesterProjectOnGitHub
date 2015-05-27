@@ -25,9 +25,10 @@ listing = dir;
 for i=length(listing):-1:1
    currentFile=listing(i).name;
    if length(currentFile)<15
-   elseif strcmp(currentFile(1:14), 'Algo1_Bus_N16p') 
+   elseif (strcmp(currentFile(1:14), 'Algo1_Bus_N16p') && strcmp(currentFile(end-11:end), 'NewError.mat'))
        files{end+1}=currentFile;
-       p(end+1)=str2num(currentFile(15:end-4))
+       %p(end+1)=str2num(currentFile(15:end-4))
+       p(end+1)=str2num(currentFile(15:end-12));
    end
 end
 
@@ -46,13 +47,13 @@ figure
 hold on;
 grid on;
 xlabel('Frame index');
-ylabel('Relative error'); %||A_{restored}-A||_F/||A||_F
+ylabel('Mean relative error of reconstructed MBs'); %||A_{restored}-A||_F/||A||_F
 
 for i=1:length(files)
    currentFile=files{i};
    %nbCorruptedBlocks=round(p(i)*nbBlocks);
-   pStr{i}=['p=',currentFile(15:end-4),'%'];
+   pStr{i}=['p=',currentFile(15:end-12),'%'];
    load(currentFile);   
-   plot(1:length(ErrorFro),ErrorFro, colors{i})
+   plot(1:length(ErrorFrame),ErrorFrame, colors{i})
 end
 legend(pStr)
