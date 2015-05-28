@@ -49,7 +49,7 @@ opts = struct( 'maxiter', 60, 'tol', 1e-6, 'verbose', false );
 nbNeighbours=5; % Nb of nearest previously recovered and corrupted future frames used in the tensor building step
 % Set to -1 to use all frames
 
-nFrame_=1:6;
+nFrame_=1:15;
 lengthNFrame_=length(nFrame_);
 
 ErrorFro=zeros(lengthNFrame_, 1);
@@ -90,19 +90,39 @@ for iFrame=1:lengthNFrame_
                 KEff
                 pause
             end
-            %A=InitializeA(N,KEff, R1, R2, R3);
+%             A=InitializeA(N,KEff, R1, R2, R3);
+%             A{3}(:,1)=1/KEff*ones(KEff,1);
+%             
+%             % Loop over the 3 dimensions
+%             for i=1:3
+%                 R{i}=size(A{i},2);
+%                 Y=X;
+%                 for j=1:3
+%                     if j~=i
+%                         Y=ttm(Y,A{j}',j);
+%                     end
+%                 end
+%                 
+%                 % Unfold Y in mode i
+%                 Yi=tenmat(Y,i);
+%                 [Q,~,~]=svd(Yi.data);
+%                 % Construct Ai with the first Ri principal components of Yi
+%                 A{i}=Q(:,1:R{i});
+%             end
+            
+            % Compute core tensor of size R1xR2xR3
             %G=ttm(X,{A{1}',A{2}',A{3}'});
-            %XInit=ttensor(G, A);
+            %XInit=ttensor(G, A{1}, A{2},A{3});
             
             XInit=makeRandTensor([N,N,KEff],r);
-           
+            
             [resX, ~, ~] = geomCG( XSparse, XInit, [], opts);
             resX=double(resX);
             P0_new=resX(:,:,1);
             %min(min(P0_new))
             %pause
             %[P0_new, err]=RecoverSubBlockTensor(RecoveredMovie,P0, K, R1, R2, R3, sigma, sigmaIterative, itMax,nFrame, nbNeighbours);
-                        % Copy only pixels which are not part of Omega
+            % Copy only pixels which are not part of Omega
             P0_new(P0>=0)=P0(P0>=0);
             RecoveredMovie(i:i+N-1, j:j+N-1,nFrame)=P0_new;
             Frame(i:i+N-1, j:j+N-1)=P0_new;
@@ -118,7 +138,7 @@ for iFrame=1:lengthNFrame_
 end
 
 filename=['../Results/ComparisonBusAlgo2ReducedRank.mat'];
-save(filename, 'ErrorFro','RecoveredMovie'); 
+save(filename, 'ErrorFro','RecoveredMovie');
 
 figure
 subplot(1,2,1)
