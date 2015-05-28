@@ -1,16 +1,16 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.5.4)  12 MAY 2015 12:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.5.20)  28 MAY 2015 14:45
 entering extended mode
- \write18 enabled.
+ restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
 **MFroidevauxTensorCompletion2015.tex
 (./MFroidevauxTensorCompletion2015.tex
 LaTeX2e <2014/05/01>
-Babel <3.9l> and hyphenation patterns for 79 languages loaded.
+Babel <3.9k> and hyphenation patterns for 78 languages loaded.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/size11.clo
-File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@section=\count80
@@ -30,14 +30,14 @@ Package: inputenc 2014/04/30 v1.2b Input encoding file
 \inpenc@posthook=\toks15
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/utf8.def
-File: utf8.def 2014/09/29 v1.1m UTF-8 support for inputenc
+File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/t1enc.dfu
-File: t1enc.dfu 2014/09/29 v1.1m UTF-8 support for inputenc
+File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
    defining Unicode char U+00AB (decimal 171)
@@ -187,7 +187,7 @@ Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ot1enc.dfu
-File: ot1enc.dfu 2014/09/29 v1.1m UTF-8 support for inputenc
+File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
    defining Unicode char U+00B8 (decimal 184)
@@ -218,7 +218,7 @@ Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/omsenc.dfu
-File: omsenc.dfu 2014/09/29 v1.1m UTF-8 support for inputenc
+File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
    defining Unicode char U+00B7 (decimal 183)
@@ -242,13 +242,13 @@ Now handling font encoding U ...
    defining Unicode char U+2423 (decimal 9251)
 ))
 (/usr/local/texlive/2014/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2014/09/25 3.9l The Babel package
+Package: babel 2014/03/24 3.9k The Babel package
 
 (/usr/local/texlive/2014/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2012/08/20 v3.3p English support from the babel system
 
 (/usr/local/texlive/2014/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2014/09/25 3.9l Babel common definitions
+File: babel.def 2014/03/24 3.9k Babel common definitions
 \babel@savecnt=\count87
 \U@D=\dimen103
 )
@@ -319,7 +319,7 @@ Now handling font encoding TS1 ...
 ... processing UTF-8 mapping file for font encoding TS1
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1enc.dfu
-File: ts1enc.dfu 2014/09/29 v1.1m UTF-8 support for inputenc
+File: ts1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A2 (decimal 162)
    defining Unicode char U+00A3 (decimal 163)
    defining Unicode char U+00A4 (decimal 164)
@@ -454,7 +454,7 @@ Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
@@ -476,10 +476,10 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gread@gobject=\count88
 ))
 (/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2014/04/25 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+Package: keyval 2014/05/08 v1.15 key=value parser (DPC)
 \KV@toks@=\toks16
 )
 \Gin@req@height=\dimen104
@@ -699,13 +699,13 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
 (/usr/local/texlive/2014/texmf-dist/tex/latex/lastpage/lastpage.sty
-Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
+Package: lastpage 2013/01/28 v1.2l Refers to last page's name (HMM; JPG)
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/multirow/multirow.sty
 \bigstrutjot=\dimen127
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2014/10/28 v1.1a Standard LaTeX Color (DPC)
+Package: color 2014/04/23 v1.1a Standard LaTeX Color (DPC)
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/color.cfg
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
@@ -737,7 +737,7 @@ Package caption Info: hyperref package is loaded.
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/pgfplots/pgfplots.sty
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
-Package: pgfplots 2015/01/31 v1.12 Data Visualization (1.12)
+Package: pgfplots 2014/02/28 v1.10 Data Visualization (1.10-2-gb39fe75)
 (/usr/local/texlive/2014/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/local/texlive/2014/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/local/texlive/2014/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
@@ -1043,17 +1043,7 @@ ode.tex)
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
 soldpgfsupp_loader.code.tex
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.cod
-e.tex)
-Package pgfplots: loading complementary arithmetics for your pgf version...
-
-(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
-soldpgfsupp_pgflibraryfpu.code.tex)
-(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
-soldpgfsupp_pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count138
-)
-(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
-soldpgfsupp_trig_format.code.tex))
+e.tex))
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code
 .tex
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
@@ -1062,13 +1052,13 @@ liststructure.code.tex)
 liststructureext.code.tex)
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
 array.code.tex
-\c@pgfplotsarray@tmp=\count139
+\c@pgfplotsarray@tmp=\count138
 )
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
 matrix.code.tex)
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstable
 shared.code.tex
-\c@pgfplotstable@counta=\count140
+\c@pgfplotstable@counta=\count139
 \t@pgfplotstable@a=\toks38
 )
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
@@ -1081,7 +1071,7 @@ ta.code.tex))
 .code.tex)
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplot
 s.surfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count141
+\c@pgfplotslibrarysurf@no=\count140
 
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots
 .surfshading.pgfsys-pdftex.def)))
@@ -1116,7 +1106,7 @@ s.code.tex
 \pgfdecoratedinputsegmentcompleteddistance=\dimen184
 \pgfdecoratedinputsegmentremainingdistance=\dimen185
 \pgf@decorate@distancetomove=\dimen186
-\pgf@decorate@repeatstate=\count142
+\pgf@decorate@repeatstate=\count141
 \pgfdecorationsegmentamplitude=\dimen187
 \pgfdecorationsegmentlength=\dimen188
 )
@@ -1130,7 +1120,7 @@ brarydecorations.pathmorphing.code.tex))
 s/tikzlibrarydecorations.pathreplacing.code.tex
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
 brarydecorations.pathreplacing.code.tex))
-\pgfplots@numplots=\count143
+\pgfplots@numplots=\count142
 \pgfplots@xmin@reg=\dimen189
 \pgfplots@xmax@reg=\dimen190
 \pgfplots@ymin@reg=\dimen191
@@ -1147,50 +1137,50 @@ ks.code.tex
 File: pgflibraryplotmarks.code.tex 2013/07/20 v3.0.0 (rcs-revision 1.13)
 )))
 (/usr/local/texlive/2014/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count144
+\lst@mode=\count143
 \lst@gtempboxa=\box40
 \lst@token=\toks39
-\lst@length=\count145
+\lst@length=\count144
 \lst@currlwidth=\dimen195
-\lst@column=\count146
-\lst@pos=\count147
+\lst@column=\count145
+\lst@pos=\count146
 \lst@lostspace=\dimen196
 \lst@width=\dimen197
-\lst@newlines=\count148
-\lst@lineno=\count149
+\lst@newlines=\count147
+\lst@lineno=\count148
 \lst@maxwidth=\dimen198
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
-\c@lstnumber=\count150
-\lst@skipnumbers=\count151
+File: lstmisc.sty 2014/03/04 1.5c (Carsten Heinz)
+\c@lstnumber=\count149
+\lst@skipnumbers=\count150
 \lst@framebox=\box41
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2014/09/06 1.5e listings configuration
+File: listings.cfg 2014/03/04 1.5c listings configuration
 ))
-Package: listings 2014/09/06 1.5e (Carsten Heinz)
+Package: listings 2014/03/04 1.5c (Carsten Heinz)
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/animate/animate.sty
-Package: animate 2015/03/11 PDF animations from files and inline graphics
+Package: animate 2014/03/25 PDF animations from files and inline graphics
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/ifdraft.sty
 Package: ifdraft 2008/08/11 v1.3 Detect class options draft and final (HO)
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/tools/calc.sty
-Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count152
-\calc@Bcount=\count153
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count151
+\calc@Bcount=\count152
 \calc@Adimen=\dimen199
 \calc@Bdimen=\dimen200
 \calc@Askip=\skip56
 \calc@Bskip=\skip57
 LaTeX Info: Redefining \setlength on input line 75.
 LaTeX Info: Redefining \addtolength on input line 76.
-\calc@Ccount=\count154
+\calc@Ccount=\count153
 \calc@Cskip=\skip58
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/atenddvi.sty
@@ -1205,7 +1195,7 @@ Package zref Info: New property list: main on input line 759.
 Package zref Info: New property: default on input line 760.
 Package zref Info: New property: page on input line 761.
 )
-\c@abspage=\count155
+\c@abspage=\count154
 Package zref Info: New property: abspage on input line 62.
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/zref-lastpage.sty
@@ -1214,53 +1204,50 @@ Package zref Info: New property list: LastPage on input line 55.
 ))
 (/usr/local/texlive/2014/texmf-dist/tex/latex/animate/animfp.sty
 Package: animfp 2009/07/23 fixed point addition for animate.sty
-\afp@xs=\count156
-\afp@xia=\count157
-\afp@xib=\count158
-\afp@xfa=\count159
-\afp@xfb=\count160
-\afp@rega=\count161
-\afp@regb=\count162
-\afp@regs=\count163
+\afp@xs=\count155
+\afp@xia=\count156
+\afp@xib=\count157
+\afp@xfa=\count158
+\afp@xfb=\count159
+\afp@rega=\count160
+\afp@regb=\count161
+\afp@regs=\count162
 )
 (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count164
+\scratchcounter=\count163
 \scratchdimen=\dimen201
 \scratchbox=\box42
-\nofMPsegments=\count165
-\nofMParguments=\count166
+\nofMPsegments=\count164
+\nofMParguments=\count165
 \everyMPshowfont=\toks40
-\MPscratchCnt=\count167
+\MPscratchCnt=\count166
 \MPscratchDim=\dimen202
-\MPnumerator=\count168
-\makeMPintoPDFobject=\count169
+\MPnumerator=\count167
+\makeMPintoPDFobject=\count168
 \everyMPtoPDFconversion=\toks41
 )
 \@anim@box=\box43
-\@anim@measbox=\box44
 \@anim@tmpdima=\dimen203
 \@anim@tmpdimb=\dimen204
-\@anim@ocnum=\count170
-\@anim@num=\count171
-\@anim@curframe=\count172
-\@anim@curframe@zb=\count173
-\@anim@resizeflags=\count174
-\@anim@skipfram=\count175
-\@anim@mulframecnt=\count176
+\@anim@num=\count169
+\@anim@curframe=\count170
+\@anim@curframe@zb=\count171
+\@anim@resize=\count172
+\@anim@skipfram=\count173
+\@anim@mulframecnt=\count174
 \@anim@@tmlnfile=\read2
-\@anim@tmpcnt=\count177
-\c@@anim@ltxcnt=\count178
-\@anim@curlayer=\count179
-\@anim@lineno=\count180
-\@anim@curfield=\count181
+\@anim@tmpcnt=\count175
+\c@@anim@ltxcnt=\count176
+\@anim@curlayer=\count177
+\@anim@lineno=\count178
+\@anim@curfield=\count179
 \@anim@begin=\toks42
 \@anim@end=\toks43
-\@anim@@resizeflags=\count182
 ) (/usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2014/09/06 1.5e listings language file
+File: lstlang1.sty 2014/03/04 1.5c listings language file
 )
-\dotcnt=\count183
+\dotcnt=\count180
 \deltay=\dimen205
 
 (./MFroidevauxTensorCompletion2015.aux)
@@ -1283,7 +1270,7 @@ LaTeX Font Info:    Try loading font information for TS1+cmr on input line 113.
 
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1cmr.fd
-File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 113.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 113.
@@ -1308,7 +1295,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box45
+\AtBeginShipoutBox=\box44
 Package hyperref Info: Link coloring ON on input line 113.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -1317,7 +1304,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count184
+\c@section@level=\count181
 )
 LaTeX Info: Redefining \ref on input line 113.
 LaTeX Info: Redefining \pageref on input line 113.
@@ -1358,7 +1345,11 @@ LaTeX Info: Redefining \nameref on input line 113.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package lastpage Info: Please have a look at the pageslts package at
-(lastpage)             https://www.ctan.org/pkg/pageslts
+(lastpage)             http://www.ctan.org/tex-archive/ 
+(lastpage)             macros/latex/contrib/pageslts/ 
+(lastpage)             or
+(lastpage)             http://www.ctan.org/tex-archive/ 
+(lastpage)             install/macros/latex/contrib/pageslts.tds.zip
 (lastpage)             ! on input line 113.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
@@ -1366,11 +1357,11 @@ Package caption Info: End \AtBeginDocument code.
 ABD: EveryShipout initializing macros
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
-ick labels; missing features). Consider writing \pgfplotsset{compat=1.12} into 
+ick labels; missing features). Consider writing \pgfplotsset{compat=1.10} into 
 your preamble.
  on input line 113.
 
-\c@lstlisting=\count185
+\c@lstlisting=\count182
 LaTeX Font Info:    Try loading font information for OT1+lmr on input line 129.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/ot1lmr.fd
@@ -1410,16 +1401,22 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 129.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-(./MFroidevauxTensorCompletion2015.toc
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 7.
-)
+
+Package hyperref Warning: old toc file detected, not used; run LaTeX again.
+
 \tf@toc=\write4
 \openout4 = `MFroidevauxTensorCompletion2015.toc'.
 
- [1
 
-{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] 
+LaTeX Warning: Reference `LastPage' on page i undefined on input line 133.
+
+[1
+
+{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
+Package lastpage Warning: Rerun to get the references right on input line 182.
+
+
 AED: lastpage setting LastPage
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1427,33 +1424,43 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-Package atenddvi Info: Last page = 2.
 [1]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 148.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 148.
- (./MFroidevauxTensorCompletion2015.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 148.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 148.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 148.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 182.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 182.
+ (./MFroidevauxTensorCompletion2015.aux
+
+Package atenddvi Warning: Rerun LaTeX, last page not yet found.
+
+)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 182.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 182.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 182.
  ) 
 Here is how much of TeX's memory you used:
- 29724 strings out of 493109
- 669681 string characters out of 6135005
- 867465 words of memory out of 5000000
- 32643 multiletter control sequences out of 15000+600000
- 47566 words of font info for 46 fonts, out of 8000000 for 9000
+ 29304 strings out of 493117
+ 655161 string characters out of 6135433
+ 846204 words of memory out of 5000000
+ 32230 multiletter control sequences out of 15000+600000
+ 44821 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,11n,77p,727b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,11n,76p,727b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/
-texlive/2014/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/20
-14/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2014/texmf-d
-ist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/t
-ype1/public/lm/lmr12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public
-/lm/lmr17.pfb>
-Output written on MFroidevauxTensorCompletion2015.pdf (2 pages, 131322 bytes).
+texlive/2014/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/20
+14/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2014/texmf-di
+st/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2014/texmf-dist/fonts/ty
+pe1/public/lm/lmr17.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/
+lm/lmri10.pfb>
+Output written on MFroidevauxTensorCompletion2015.pdf (2 pages, 128965 bytes).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
- 13 named destinations out of 1000 (max. 500000)
+ 58 PDF objects out of 1000 (max. 8388607)
+ 48 compressed objects within 1 object stream
+ 17 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
