@@ -38,6 +38,10 @@
 \usepackage{amssymb}
 \usepackage{animate}
 
+% Pour le pseudo-code
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
 
 
 %modification de la mise en page
@@ -90,6 +94,13 @@ showstringspaces=false, frame=single}
 \def \d {\partial}
 \def \i {\infty}
 \def \O {\mathcal{O}}
+\def \X {\mathcal{X}}
+\def \R {\mathbb{R}}
+\def \t {\times}
+\def \rank{\mbox{rank}}
+\def \Y {\mathcal{Y}}
+\def \C {\mathcal{C}}
+\def \Mr {\mathcal{M}_{r}}
 
 
 %\renewcommand{\thesubsubsection}{ \alph{subsubsection})}
@@ -105,6 +116,10 @@ showstringspaces=false, frame=single}
 %\renewcommand\thesubsection{}
 %\renewcommand\thesubsubsection{\@arabic\c@section.\@arabic\c@subsection. \alph{subsubsection})}
 %\makeatother
+
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
 
 
 \newcommand{\mail}[1]{{\href{mailto:#1}{#1}}}
@@ -136,8 +151,88 @@ showstringspaces=false, frame=single}
 
 
 \section{Introduction}
+Error concealment is a domain of image processing which deals with
+
+Error typically in form of patches 
+
+This report presents an error concealment algorithm, called Alternating Least Square, that reconstructs the corrupted patches by exploiting the low-rank property of a stack of similar patches. Results of the application of this algorithm to movie reconstruction and inpainting are presented here as well. 
+
+Moreover, for comparison purpose, the same movies and images were reconstructed using the algorithm GeomCG for low-rank approximation.
+
 \section{Basics of tensor algebra}
+Before looking at the error concealment algorithm in details, a few basic tools of tensor algebra need to be defined.
+This section is based on the paper by Kolda and Bader \cite{Kolda-Bader}, which should be referred back to for further details.
+
+It is sufficient for our purpose to consider three-dimensional tensors only, but all algebraic concepts presented in this section can be generalised to higher dimensions.
+
+Let $\X \in \R^{I_1\t I_2 \t I_3}$.
+The \underline{i$^{th}$ matricisation} of $\X$ is a reordering of its entries into a matrix $X_{(i)} \in \R^{ I_i\t \prod_{j\neq i}I_j}$ such that the indices of $\X$ in the i$^{th}$ dimension become the row indices of $X_{(i)}$ and the indices of $\X$ in the other dimensions are rearranged in lexicographical order to become column indices of $X_{i}$. 
+
+The $i-$rank of $\X$ is defined as the rank of its i$^{th}$ matricisation. The \underline{multilinear rank} of $\X$ is a 3-tuple grouping the $i$-rank of $\X$ in each of the three dimensions:
+\be
+\rank(\X):=\left[\rank(X_{(1)}),  \rank(X_{(2)}), \rank(X_{(3)})\right]
+\ee
+
+The \underline{i$^{th}$-mode produc}t of $\X$ with a matrix $M \in \R^{m\t I_i}$ is a tensor $\mathcal{Y} \in \R^{J_1\t J_2\t J_3}$, with $J_j=I_j$ for $j\neq i$, and $J_i=m$. $\mathcal{Y}$ is defined by means of the matricisation as follows:
+\be
+\mathcal{Y}=\X \t_{i} M \iff Y_{(i)}=MX_{(i)}
+\ee
+Note that the matricisation operation is a bijection from $ \R^{I_1\t I_2 \t I_3}$ into $\R^{ I_i\t \prod_{j\neq i}I_j}$. The product $\mathcal{Y}$ is thus uniquely determined by any of its matricisation.
+
+The \underline{inner product} of two tensors $\X, \Y in \R^{I_1\t I_2 \t I_3}$ is the sum of the product of their entries, that is to say:
+\be
+<\X,\Y>:=\sqrt{\sum\limits_{i_1=1}^{I_1}\sum\limits_{i_2=1}^{I_2}\sum\limits_{i_3=1}^{I_3} x_{i_1,i_2,i_3}y_{i_1,i_2,i_3}}
+\ee 
+The induced \underline{norm} $\|\X\|:=\sqrt{<\X, \X>}$ is thus a generalisation of the matrix Frobenius norm to 3 dimensions.
+
+Any tensor $\X$ of multilinear rank $\rank(\X)=[r_1, r_2, r_3]$ can be decomposed into a core tensor $\C \in \R^{r_1\t r_2 \t r_3}$ and three orthogonal basis matrices $U_i \in \R^{I_i\t r_i}$, such that
+\be
+\X=\C \t_1 U_1 \t_2 U_2 \t_3 U_3 
+\ee 
+This is called the \underline{Tucker Decomposition} and is the basis of the {High-Order Singular Value Decomposition} (HOSVD) algorithm. 
+
+HOSVD aims at computing a rank-$\left[R_1,R_2, R_3\right]$ approximation of a tensor $\X$ of higher rank in the Tucker format. This is done by matricising $\X$ in each dimension $i=1,2,3$ and using the $R_i$ principal left singular vectors as basis $U_i$ of the Tucker decomposition. The pseudo-code for the HOSVD procedure is given in Algorithm \autoref{HOSVD}.
+
+\begin{algorithm}
+\caption{Higher-Order Sinngular Value Decomposition}\label{HOSVD}
+\begin{algorithmic}[1]
+\Procedure{HOSVD ($\X, R_1, R_2, R_3$)}{}
+%\State for $ i=1,2,3$
+\For {$i=1,2,3}$
+\State $U_i \gets R_i$ leading left singular vectors of $X_{(i)}$ 
+\EndFor
+\State $\mathcal{G} \gets \X \t_1 U_1^\top \t_2 U_2^\top \t_3 U_3^\top$
+\State \Return {$\mathcal{G}, U_1, U_2, U_3$}
+%\BState \emph{top}:
+%\If {$i > \textit{stringlen}$} \Return false
+%\EndIf
+%\State $j \gets \textit{patlen}$
+%\BState \emph{loop}:
+%\If {$\textit{string}(i) = \textit{path}(j)$}
+%\State $j \gets j-1$.
+%\State $i \gets i-1$.
+%\State \textbf{goto} \emph{loop}.
+%\State \textbf{close};
+%\EndIf
+%\State $i \gets i+\max(\textit{delta}_1(\textit{string}(i)),\textit{delta}_2(j))$.
+%\State \textbf{goto} \emph{top}.
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+
+This procedure can be viewed as a generalisation of the matrix Singular Value Decomposition (SVD) as a truncated SVD is performed on each matricisation of $\X$ to obtain a lower rank approximation. However, in contrast to the 2-dimensional case, the HOSVD does not lead to the best rank-$\left[R_1,R_2, R_3\right]$ approximation of $\X$. Let us denote the subspace of  all 3-dimensional tensors of rank $r=\left[R_1, R_2, R_3\right]$  by  $\Mr:=\{ \mathcal{T} \in \R^{I_1\t I_2 \t I_3} | \rank(\mathcal{T})=\left[R_1,R_2, R_3\right] \}$ and let $P_{\Mr}\X$ be a best approximation of $\X$ in the subspace $\Mr$ relatively to the norm defined above. If $P_{HO}\X$ represents the result of the HOSVD procedure applied to $\X$ then the following results holds \cite{GeomCG}:
+\be
+\|\X-P_{HO}\X \|\leqslant \sqrt{3} \| \X-P_{\Mr}\X \|
+\ee
+
+This means that a best low-rank approximation of $\X$  is only better by a factor $\frac{1}{\sqrt{3}}$ than what is computed by means of the HOSVD procedure.
+
+\section{Selection of samples}
+
+
 \section{Alternating Least Squares Algorithm (ALS)}
+
 \section{GeomCG}
 \section{Results}
 \subsection{Bus Sequence}
@@ -158,7 +253,7 @@ D.T. Nguyen, M.D. Dao and T.D. Tran. {The John Hopkins University}, 2011.
 
 
 \bibitem{GeomCG} 
-D.Kressner, M. Steinlechner and B.Vandereycken.{\'Ecole Polytechnique F\'ed\'erale de Lausanne}, 2013. \textit{Low-Rank Tensor Completion by Riemannian Optimization}
+D.Kressner, M. Steinlechner and B.Vandereycken.{ \'Ecole Polytechnique F\'ed\'erale de Lausanne}, 2013. \textit{Low-Rank Tensor Completion by Riemannian Optimization}
 
 
 \bibitem{Kolda-Bader}  T.G. Kolda and B.W. Bader. {Sandia National Laboratories}, 2009.

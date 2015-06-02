@@ -1,10 +1,11 @@
 \select@language {english}
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}
 \contentsline {section}{\numberline {2}Basics of tensor algebra}{1}{section.2}
-\contentsline {section}{\numberline {3}Alternating Least Squares Algorithm (ALS)}{1}{section.3}
-\contentsline {section}{\numberline {4}GeomCG}{1}{section.4}
-\contentsline {section}{\numberline {5}Results}{1}{section.5}
-\contentsline {subsection}{\numberline {5.1}Bus Sequence}{1}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Inpainting}{1}{subsection.5.2}
-\contentsline {section}{\numberline {6}Conclusion}{1}{section.6}
-\contentsline {section}{\numberline {7}Suggestion for further research}{1}{section.7}
+\contentsline {section}{\numberline {3}Selection of samples}{3}{section.3}
+\contentsline {section}{\numberline {4}Alternating Least Squares Algorithm (ALS)}{3}{section.4}
+\contentsline {section}{\numberline {5}GeomCG}{3}{section.5}
+\contentsline {section}{\numberline {6}Results}{3}{section.6}
+\contentsline {subsection}{\numberline {6.1}Bus Sequence}{3}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Inpainting}{3}{subsection.6.2}
+\contentsline {section}{\numberline {7}Conclusion}{3}{section.7}
+\contentsline {section}{\numberline {8}Suggestion for further research}{3}{section.8}
