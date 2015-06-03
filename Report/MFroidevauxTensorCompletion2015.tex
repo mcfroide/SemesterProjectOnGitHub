@@ -101,6 +101,9 @@ showstringspaces=false, frame=single}
 \def \Y {\mathcal{Y}}
 \def \C {\mathcal{C}}
 \def \Mr {\mathcal{M}_{r}}
+\def \E {\mathcal{E}}
+\def \Xl {\mathcal{X}_{l}}
+\def \bO{\bar{\Omega}}
 
 
 %\renewcommand{\thesubsubsection}{ \alph{subsubsection})}
@@ -186,23 +189,31 @@ The \underline{inner product} of two tensors $\X, \Y in \R^{I_1\t I_2 \t I_3}$ i
 The induced \underline{norm} $\|\X\|:=\sqrt{<\X, \X>}$ is thus a generalisation of the matrix Frobenius norm to 3 dimensions.
 
 Any tensor $\X$ of multilinear rank $\rank(\X)=[r_1, r_2, r_3]$ can be decomposed into a core tensor $\C \in \R^{r_1\t r_2 \t r_3}$ and three orthogonal basis matrices $U_i \in \R^{I_i\t r_i}$, such that
-\be
+\bee
 \X=\C \t_1 U_1 \t_2 U_2 \t_3 U_3 
-\ee 
+\label{Tucker}
+\eee
 This is called the \underline{Tucker Decomposition} and is the basis of the {High-Order Singular Value Decomposition} (HOSVD) algorithm. 
+
+Note that a Tucker decomposition is not unique. Indeed, if $\X$ can be decomposed as in \autoref{Tucker} then for any $V_1\in \R^{r_1\times r_1}, V_2\in \R^{r_2\times r_2}, V_3\in \R^{r_3\times r_3}$ invertible, tho following decomposition holds as well:
+
+\be
+\X=\tilde{\C} \t_1 \tilde{U}_1 \t_2 \tilde{U}_2 \t_3 \tilde{U}_3 
+\ee
+where $\tilde{\C}=\C\t_1V_1 \t_2 V_2 \t_3 V_3$ and $\tilde{U}_i=U_iV_i^{-1}$.
 
 HOSVD aims at computing a rank-$\left[R_1,R_2, R_3\right]$ approximation of a tensor $\X$ of higher rank in the Tucker format. This is done by matricising $\X$ in each dimension $i=1,2,3$ and using the $R_i$ principal left singular vectors as basis $U_i$ of the Tucker decomposition. The pseudo-code for the HOSVD procedure is given in Algorithm \autoref{HOSVD}.
 
 \begin{algorithm}
-\caption{Higher-Order Sinngular Value Decomposition}\label{HOSVD}
+\caption{Higher-Order Singular Value Decomposition}\label{HOSVD}
 \begin{algorithmic}[1]
 \Procedure{HOSVD ($\X, R_1, R_2, R_3$)}{}
 %\State for $ i=1,2,3$
 \For {$i=1,2,3}$
 \State $U_i \gets R_i$ leading left singular vectors of $X_{(i)}$ 
 \EndFor
-\State $\mathcal{G} \gets \X \t_1 U_1^\top \t_2 U_2^\top \t_3 U_3^\top$
-\State \Return {$\mathcal{G}, U_1, U_2, U_3$}
+\State $\mathcal{C} \gets \X \t_1 U_1^\top \t_2 U_2^\top \t_3 U_3^\top$
+\State \Return {$\mathcal{C}, U_1, U_2, U_3$}
 %\BState \emph{top}:
 %\If {$i > \textit{stringlen}$} \Return false
 %\EndIf
@@ -228,15 +239,91 @@ This procedure can be viewed as a generalisation of the matrix Singular Value De
 
 This means that a best low-rank approximation of $\X$  is only better by a factor $\frac{1}{\sqrt{3}}$ than what is computed by means of the HOSVD procedure.
 
-\section{Selection of samples}
+\section{Statement of the problem}
+The description is made here for the case of movie reconstruction. Image inpainting can be viewed as a particular case of movie reconstruction where the number of frames is equal to 1.
+
+Firstly, a Macro-Block (MB) grid is defined for each frame. The size of a MB, denoted by $N$, is typically  $8\t 8$ or $16\t 16$ pixels and the MB grid is shifted by half a block size in the vertical and horizontal direction of the frame. A given MB therefore typically overlaps with 8 other MBs from the same frame (see \autoref{MBs}) and a natural division of each MB into 4 sub-blocks arises. 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.6]{MBs}
+\caption{A given MB (grey) typically overlaps with 8 other MBs (red, yellow, blue and green contour) from the same frame.  \label{MBs}}
+\end{figure}
+%Different MBs from the same frame can therefore overlap on half of their pixels. 
+\subsection{Tensor construction via selection of similar patches}
+
+In each frame of the movie separately, all MBs containing corrupted entries are put in a list and sorted relatively to the number of clean (i.e. non-corrupted) pixels they contain.
+We call $P^0$ a corrupted MB and $\Omega$ the set of its clean and concealed pixels.
+$P^0$s with a larger set $\Omega$ will be reconstructed first.
+
+Once a $P^0$ is chosen for reconstruction of its missing entries, similar MBs that are fully clean will be looked for in a some defined reference frames. We call these similar MBs $P^i$ and seek to select the $K$  $P^i$s which best match $P^0$. The best matching $P^i$ is defined as the one which minimises the error
+\bee
+\| P_{\Omega}^0-P_{\Omega}^i\|_1=\sum \limits_{j} |P^0_j-P^i_j|
+\label{ErrorMatching}
+\eee
+where $j$ is an index that loops over all pixels of $\Omega$. All MBs are rescaled to have the same $L_2-norm$ as $P^0$ (on the set $\Omega$ only) before the matching error is computed. 
+
+Note that $K$ needs to be defined as a user input, but in case less than $K$ "good matching" MBs are actually available in the reference frames, then only $K_{eff}<K$ MBs are effectively selected, in order to avoid taking into account random MBs which would pervert the results. 
+In my particular implementation, any MB with an error more then twice bigger than the best matching $P^i$ was discarded from the selection.
+
+It is important here to realise that generally the higher the number of reference frames for the selection of $P^i$s, the better the matching with $P^0$ and thus the better the reconstruction. However, the scanning of reference frames for detection of matching MBs is a very time-consuming process. The number of reference frames should therefore be a trade-off between computation time and quality of the results. 
+
+$P^0$ and all the $P^i$s are then gathered into a 3-dimensional tensor $\X$ of size $N\t N\t K_{eff}$, where $P^0$ is the first slice of the tensor. Later in this report, $K$ will be used in place of $K_{eff}$ for the sake of simplicity, but it should be remembered that this $K$ might be smaller than the value given as user input.
+
+\subsection{Low-rank approximation of the tensor}
+
+Ideally, if the objects in the movie were not moving and the camera was keeping the same view, then $\X$ would be composed of $K$ times the same patch. It could therefore be represented as a product between the 2D patch $P$ and a constant vector 1 in the $3^{rd}$ dimension. Allowing some small sparse noise $\mathcal{E}$, it would write:
+\bee
+\X= \Xl+\E=P\t_3 1+\E
+\label{ideal}
+\eee
+After decomposition of $\Xl$ int the Tucker format
+\be
+\X_l=\C\t_1 A_1 \t_2 A_2 \t_3 A_3
+\ee
+and comparison with \ref{ideal} we can write
+\be
+P=\C \t_1 A_1\t_2 A_2 \mbox{ and } A_3=1
+\ee
+In practice, $\Xl$ is not composed of $K$ exactly identical patches and its rank can thus not be 1. It is however reasonable to assume that it still has a small 3-rank. In this light, two different algorithms have been used to find a good low-rank approximation of $\X$.
+\subsection{Alternating Least Squares Algorithm (ALS)}
+We call now $\bar{\Omega}$ the set of missing entries in $P^0$.
+
+The Alternating Least Square algorithm presented in the paper by Nguyen, Dao and Tran \cite{ALS} starts by filling $P^0_{\bO}$ in the first slice of $\X$ with the mean values of the $P^i$s at these locations.
+
+\begin{algorithm}
+\caption{Alternating Least Square}\label{HOSVD}
+\begin{algorithmic}[1]
+%\Procedure{ALS ($\X, R_1, R_2, R_3$)}{}
+\State Form $\X$ from $P^0,...,K-1$ 
+\State $(\X(:,:,1))_{\bO}=(\frac{1}{K-1}\sum_{i=1}^{K-1}P^i)_{\bO}$
+\State Choose mode ranks $\{R_1, R_2, R_3\}$ and tolerance $\sigma_{abs}, \sigma_{rel}, \sigma_{it}$
+\State Initialize $A_1 \in \R^{N\t R_1}, A_2\in \R^{N\t R_2}, A_3\in \R^{K\t R_3}$ randomly.
+\State $A^3(:,1)=[1,...,1]^{\top}/K$ \label{here}
+\For {$i=1,2,3$}
+\State $\Y=\X$
+\For {$j\neq i$}
+	\State $\Y=\Y\t_j A_j^\top$
+\EndFor
+\State$Y_i\gets$  unfold $\Y$ in mode $i$
+\State $A_i$=first $R_i$ principal components of $Y_i$
+\EndFor
+\State $\C=\X\t_1 A_1^{\top}\t_2 A_2^{\top}\t_3 A_3^{\top}$
+\State $\X_l=\C\t_1 A_1 \t_2 A_2 \t_3 A_3$
+\State If convergence is reached, stop ; else return to Step \ref{here}
+\State Recover missing area in $P^0$: $(P^0)_{\bO}=(\Xl(:,:,1))_{\bO}$
+\end{algorithmic}
+\end{algorithm}
 
 
-\section{Alternating Least Squares Algorithm (ALS)}
 
-\section{GeomCG}
+\subsection{GeomCG}
+
 \section{Results}
+
 \subsection{Bus Sequence}
 \subsection{Inpainting}
+\subsection{Effect of the corruption ratio}
 
 \section{Conclusion}
 \section{Suggestion for further research}

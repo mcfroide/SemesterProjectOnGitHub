@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.5.4)  1 JUN 2015 19:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.5.4)  3 JUN 2015 13:10
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1297,32 +1297,35 @@ File: lstlang1.sty 2014/09/06 1.5e listings language file
 \dotcnt=\count192
 \deltay=\dimen205
 
-(./MFroidevauxTensorCompletion2015.aux)
+(./MFroidevauxTensorCompletion2015.aux
+
+LaTeX Warning: Label `HOSVD' multiply defined.
+
+)
 \openout1 = `MFroidevauxTensorCompletion2015.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 128.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 128.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 131.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 131.
 
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1cmr.fd
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 128.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 131.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1343,7 +1346,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box47
-Package hyperref Info: Link coloring ON on input line 128.
+Package hyperref Info: Link coloring ON on input line 131.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1353,9 +1356,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count193
 )
-LaTeX Info: Redefining \ref on input line 128.
-LaTeX Info: Redefining \pageref on input line 128.
-LaTeX Info: Redefining \nameref on input line 128.
+LaTeX Info: Redefining \ref on input line 131.
+LaTeX Info: Redefining \pageref on input line 131.
+LaTeX Info: Redefining \nameref on input line 131.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1393,7 +1396,7 @@ LaTeX Info: Redefining \nameref on input line 128.
 
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 128.
+(lastpage)             ! on input line 131.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
@@ -1403,51 +1406,51 @@ ABD: EveryShipout initializing macros
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.12} into 
 your preamble.
- on input line 128.
+ on input line 131.
 
 \c@lstlisting=\count194
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 144.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 147.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 144.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 147.
 
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 144
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 147
 .
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 144
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 147
 .
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 144.
+(Font)              <12> on input line 147.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 144.
+(Font)              <8> on input line 147.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 144.
-LaTeX Font Info:    Try loading font information for U+msa on input line 144.
+(Font)              <6> on input line 147.
+LaTeX Font Info:    Try loading font information for U+msa on input line 147.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 144.
+LaTeX Font Info:    Try loading font information for U+msb on input line 147.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 (./MFroidevauxTensorCompletion2015.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 8.
+(Font)              <10.95> on input line 5.
 )
 \tf@toc=\write4
 \openout4 = `MFroidevauxTensorCompletion2015.toc'.
@@ -1463,17 +1466,40 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [1]
 
-Package hyperref Warning: No autoref name for `algorithm' on input line 194.
+Package hyperref Warning: No autoref name for `algorithm' on input line 205.
 
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 197.
+put line 208.
+<MBs.png, id=66, 114.6684pt x 109.3686pt>
+File: MBs.png Graphic file (type png)
+ <use MBs.png>
+Package pdftex.def Info: MBs.png used on input line 249.
+(pdftex.def)             Requested size: 68.80156pt x 65.62164pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[2] 
+[2]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[3 <./MBs.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[4] 
 AED: lastpage setting LastPage
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1481,20 +1507,24 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-Package atenddvi Info: Last page = 4.
-[3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 277.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 277.
+Package atenddvi Info: Last page = 6.
+[5]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 364.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 364.
  (./MFroidevauxTensorCompletion2015.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 277.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 277.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 277.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 364.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 364.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 364.
  ) 
 Here is how much of TeX's memory you used:
- 30324 strings out of 493109
- 678385 string characters out of 6135005
- 881711 words of memory out of 5000000
- 33214 multiletter control sequences out of 15000+600000
+ 30354 strings out of 493109
+ 678705 string characters out of 6135005
+ 883711 words of memory out of 5000000
+ 33232 multiletter control sequences out of 15000+600000
  66792 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,12n,77p,828b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1520,10 +1550,10 @@ lmsy6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><
 /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.p
 fb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm
 10.pfb>
-Output written on MFroidevauxTensorCompletion2015.pdf (4 pages, 285929 bytes).
+Output written on MFroidevauxTensorCompletion2015.pdf (6 pages, 327453 bytes).
 PDF statistics:
- 145 PDF objects out of 1000 (max. 8388607)
- 118 compressed objects within 2 object streams
- 21 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 174 PDF objects out of 1000 (max. 8388607)
+ 143 compressed objects within 2 object streams
+ 31 named destinations out of 1000 (max. 500000)
+ 18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
