@@ -53,7 +53,27 @@ for i=1:length(files)
    currentFile=files{i};
    %nbCorruptedBlocks=round(p(i)*nbBlocks);
    pStr{i}=['p=',currentFile(15:end-12),'%'];
-   load(currentFile);   
+   load(currentFile);  
+   M(i)=mean(ErrorFrame);
    plot(1:length(ErrorFrame),ErrorFrame, colors{i})
 end
 legend(pStr)
+
+%%
+y=log(M);
+nodes=[p(1)-5,p,p(end)+5]; %nodes=0.8*p(1):0.05:1.1*p(end);
+PP=polyfit(p,y,1);
+QQ=polyval(PP,nodes);
+Interp=exp(QQ);
+
+Interpp=exp(PP(2))*exp(PP(1)*nodes);
+
+figure
+semilogy(p, M, '--ok');
+%loglog(p, M, '--ok')
+hold on;
+semilogy(nodes,Interpp, '--r')
+xlabel('p [%]');
+ylabel('Mean Relative Error')
+LinIntString=[num2str(PP(2),2),'exp(',num2str(PP(1),2),'p)'];
+legend('Experimental results', LinIntString)

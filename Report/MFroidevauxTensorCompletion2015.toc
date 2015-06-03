@@ -3,12 +3,13 @@
 \contentsline {section}{\numberline {2}Basics of tensor algebra}{1}{section.2}
 \contentsline {section}{\numberline {3}Statement of the problem}{2}{section.3}
 \contentsline {subsection}{\numberline {3.1}Tensor construction via selection of similar patches}{3}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Low-rank approximation of the tensor}{3}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Alternating Least Squares Algorithm (ALS)}{4}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}GeomCG}{5}{subsection.3.4}
-\contentsline {section}{\numberline {4}Results}{5}{section.4}
-\contentsline {subsection}{\numberline {4.1}Bus Sequence}{5}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Inpainting}{5}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Effect of the corruption ratio}{5}{subsection.4.3}
-\contentsline {section}{\numberline {5}Conclusion}{5}{section.5}
-\contentsline {section}{\numberline {6}Suggestion for further research}{5}{section.6}
+\contentsline {subsection}{\numberline {3.2}Low-rank property of the tensor}{3}{subsection.3.2}
+\contentsline {section}{\numberline {4}Description of the algorithms for low-rank approximation}{4}{section.4}
+\contentsline {subsection}{\numberline {4.1}Alternating Least Squares Algorithm (ALS)}{4}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}GeomCG}{5}{subsection.4.2}
+\contentsline {section}{\numberline {5}Results}{5}{section.5}
+\contentsline {subsection}{\numberline {5.1}Bus Sequence}{5}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Inpainting}{5}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Effect of the corruption ratio}{5}{subsection.5.3}
+\contentsline {section}{\numberline {6}Conclusion}{5}{section.6}
+\contentsline {section}{\numberline {7}Suggestion for further research}{5}{section.7}

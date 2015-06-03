@@ -129,10 +129,10 @@ showstringspaces=false, frame=single}
 \newcommand{\ftplink}[1]{{\href{ftp://#1}{#1}}}
 
 \begin{document}
-\title{3D Tensor Completion\\ \textsc{}}
+\title{Error Concealment using 3D Low-Rank Tensor Completion}%\\ \textsc{}}
 %\author{Lukas König et Marine Froidevaux\\ \mail{lukasgeorg.koenig@epfl.ch} \\ \mail{marine.froidevaux@epfl.ch}}
-\author{Marine Froidevaux, Supervisors: Dr. Jonas Ballani and Prof. Daniel Kressner }% \\ \mail{marine.froidevaux@epfl.ch}}
-
+\author{Marine Froidevaux \\ \mail{marine.froidevaux@epfl.ch} \\ \\Supervisors: Dr. Jonas Ballani and Prof. Daniel Kressner 
+ }% \\ \mail{marine.froidevaux@epfl.ch}}
 %\date{2011} % Si on ne met pas du tout la commande "date" le maketitle ajoute automatiquement la date du jour à la page de titre. Pour ne pas voir apparaître la date il faut écrire la commande vide \date{}.
 
 
@@ -183,14 +183,15 @@ The \underline{i$^{th}$-mode produc}t of $\X$ with a matrix $M \in \R^{m\t I_i}$
 Note that the matricisation operation is a bijection from $ \R^{I_1\t I_2 \t I_3}$ into $\R^{ I_i\t \prod_{j\neq i}I_j}$. The product $\mathcal{Y}$ is thus uniquely determined by any of its matricisation.
 
 The \underline{inner product} of two tensors $\X, \Y in \R^{I_1\t I_2 \t I_3}$ is the sum of the product of their entries, that is to say:
-\be
+\bee
 <\X,\Y>:=\sqrt{\sum\limits_{i_1=1}^{I_1}\sum\limits_{i_2=1}^{I_2}\sum\limits_{i_3=1}^{I_3} x_{i_1,i_2,i_3}y_{i_1,i_2,i_3}}
-\ee 
+\label{innerProd}
+\eee
 The induced \underline{norm} $\|\X\|:=\sqrt{<\X, \X>}$ is thus a generalisation of the matrix Frobenius norm to 3 dimensions.
 
-Any tensor $\X$ of multilinear rank $\rank(\X)=[r_1, r_2, r_3]$ can be decomposed into a core tensor $\C \in \R^{r_1\t r_2 \t r_3}$ and three orthogonal basis matrices $U_i \in \R^{I_i\t r_i}$, such that
+Any tensor $\X$ of multilinear rank $\rank(\X)=[r_1, r_2, r_3]$ can be decomposed into a core tensor $\C \in \R^{r_1\t r_2 \t r_3}$ and three orthogonal basis matrices $A_i \in \R^{I_i\t r_i}$, such that
 \bee
-\X=\C \t_1 U_1 \t_2 U_2 \t_3 U_3 
+\X=\C \t_1 A_1 \t_2 A_2 \t_3 A_3 
 \label{Tucker}
 \eee
 This is called the \underline{Tucker Decomposition} and is the basis of the {High-Order Singular Value Decomposition} (HOSVD) algorithm. 
@@ -198,11 +199,11 @@ This is called the \underline{Tucker Decomposition} and is the basis of the {Hig
 Note that a Tucker decomposition is not unique. Indeed, if $\X$ can be decomposed as in \autoref{Tucker} then for any $V_1\in \R^{r_1\times r_1}, V_2\in \R^{r_2\times r_2}, V_3\in \R^{r_3\times r_3}$ invertible, tho following decomposition holds as well:
 
 \be
-\X=\tilde{\C} \t_1 \tilde{U}_1 \t_2 \tilde{U}_2 \t_3 \tilde{U}_3 
+\X=\tilde{\C} \t_1 \tilde{A}_1 \t_2 \tilde{A}_2 \t_3 \tilde{A}_3 
 \ee
-where $\tilde{\C}=\C\t_1V_1 \t_2 V_2 \t_3 V_3$ and $\tilde{U}_i=U_iV_i^{-1}$.
+where $\tilde{\C}=\C\t_1V_1 \t_2 V_2 \t_3 V_3$ and $\tilde{A}_i=A_iV_i^{-1}$.
 
-HOSVD aims at computing a rank-$\left[R_1,R_2, R_3\right]$ approximation of a tensor $\X$ of higher rank in the Tucker format. This is done by matricising $\X$ in each dimension $i=1,2,3$ and using the $R_i$ principal left singular vectors as basis $U_i$ of the Tucker decomposition. The pseudo-code for the HOSVD procedure is given in Algorithm \autoref{HOSVD}.
+HOSVD aims at computing a rank-$\left[R_1,R_2, R_3\right]$ approximation of a tensor $\X$ of higher rank in the Tucker format. This is done by matricising $\X$ in each dimension $i=1,2,3$ and using the $R_i$ principal left singular vectors as basis $A_i$ of the Tucker decomposition. The pseudo-code for the HOSVD procedure is given in Algorithm \autoref{HOSVD}.
 
 \begin{algorithm}
 \caption{Higher-Order Singular Value Decomposition}\label{HOSVD}
@@ -210,10 +211,10 @@ HOSVD aims at computing a rank-$\left[R_1,R_2, R_3\right]$ approximation of a te
 \Procedure{HOSVD ($\X, R_1, R_2, R_3$)}{}
 %\State for $ i=1,2,3$
 \For {$i=1,2,3}$
-\State $U_i \gets R_i$ leading left singular vectors of $X_{(i)}$ 
+\State $A_i \gets R_i$ leading left singular vectors of $X_{(i)}$ 
 \EndFor
-\State $\mathcal{C} \gets \X \t_1 U_1^\top \t_2 U_2^\top \t_3 U_3^\top$
-\State \Return {$\mathcal{C}, U_1, U_2, U_3$}
+\State $\mathcal{C} \gets \X \t_1 A_1^\top \t_2 A_2^\top \t_3 A_3^\top$
+\State \Return {$\mathcal{C}, A_1, A_2, A_3$}
 %\BState \emph{top}:
 %\If {$i > \textit{stringlen}$} \Return false
 %\EndIf
@@ -270,7 +271,8 @@ It is important here to realise that generally the higher the number of referenc
 
 $P^0$ and all the $P^i$s are then gathered into a 3-dimensional tensor $\X$ of size $N\t N\t K_{eff}$, where $P^0$ is the first slice of the tensor. Later in this report, $K$ will be used in place of $K_{eff}$ for the sake of simplicity, but it should be remembered that this $K$ might be smaller than the value given as user input.
 
-\subsection{Low-rank approximation of the tensor}
+\subsection{Low-rank property of the tensor}
+\label{subsecIdeal}
 
 Ideally, if the objects in the movie were not moving and the camera was keeping the same view, then $\X$ would be composed of $K$ times the same patch. It could therefore be represented as a product between the 2D patch $P$ and a constant vector 1 in the $3^{rd}$ dimension. Allowing some small sparse noise $\mathcal{E}$, it would write:
 \bee
@@ -286,19 +288,21 @@ and comparison with \ref{ideal} we can write
 P=\C \t_1 A_1\t_2 A_2 \mbox{ and } A_3=1
 \ee
 In practice, $\Xl$ is not composed of $K$ exactly identical patches and its rank can thus not be 1. It is however reasonable to assume that it still has a small 3-rank. In this light, two different algorithms have been used to find a good low-rank approximation of $\X$.
+
+\section{Description of the algorithms for low-rank approximation}
 \subsection{Alternating Least Squares Algorithm (ALS)}
 We call now $\bar{\Omega}$ the set of missing entries in $P^0$.
 
-The Alternating Least Square algorithm presented in the paper by Nguyen, Dao and Tran \cite{ALS} starts by filling $P^0_{\bO}$ in the first slice of $\X$ with the mean values of the $P^i$s at these locations.
+The Alternating Least Square algorithm presented in the paper by Nguyen, Dao and Tran \cite{ALS} starts by filling $P^0_{\bO}$ in the first slice of $\X$ with the mean values of the $P^i$s at these locations (see Algorithm \ref{ALS algo}, line \ref{meanPi}).
 
 \begin{algorithm}
-\caption{Alternating Least Square}\label{HOSVD}
+\caption{Alternating Least Square}\label{ALS algo}
 \begin{algorithmic}[1]
 %\Procedure{ALS ($\X, R_1, R_2, R_3$)}{}
 \State Form $\X$ from $P^0,...,K-1$ 
-\State $(\X(:,:,1))_{\bO}=(\frac{1}{K-1}\sum_{i=1}^{K-1}P^i)_{\bO}$
-\State Choose mode ranks $\{R_1, R_2, R_3\}$ and tolerance $\sigma_{abs}, \sigma_{rel}, \sigma_{it}$
-\State Initialize $A_1 \in \R^{N\t R_1}, A_2\in \R^{N\t R_2}, A_3\in \R^{K\t R_3}$ randomly.
+\State $(\X(:,:,1))_{\bO}=(\frac{1}{K-1}\sum_{i=1}^{K-1}P^i)_{\bO}$ \label{meanPi}
+\State Choose mode ranks $[R_1, R_2, R_3]$ and tolerance $\sigma_{rel}, \sigma_{it}$
+\State Initialise $A_1 \in \R^{N\t R_1}, A_2\in \R^{N\t R_2}, A_3\in \R^{K\t R_3}$ randomly.
 \State $A^3(:,1)=[1,...,1]^{\top}/K$ \label{here}
 \For {$i=1,2,3$}
 \State $\Y=\X$
@@ -315,10 +319,34 @@ The Alternating Least Square algorithm presented in the paper by Nguyen, Dao and
 \end{algorithmic}
 \end{algorithm}
 
+While the multilinear rank $R_3$ is supposed to be small (it was set to 3 in the following examples), no assumption can be made on $R_1$ and $R_2$. These two variables are thus generally kept to their maximal possible value $N$.
 
+The ALS procedure is a modified version of the HOSVD presented in Algorithm \autoref{HOSVD}. It is a iterative process which updates the basis matrices $A_i$ one by one, keeping the other two constant. In this way, $A_3$ can be enforced at each iteration to fulfil an additional condition.
+Indeed, in the ideal case described in \autoref{subsecIdeal}, $A_3$ was a constant vector 1. Since we look for a solution which is know to be close to the ideal case, convergence can be helped by forcing the first vector of $A_3$ to be constant and normalised to 1.
+
+The procedure is considered to have reached convergence at iteration $n$ if one of these two conditions is fulfilled:
+\begin{enumerate}
+\item The low-rank tensor $\Xl^{(n)}$ has become close enough to $\X$, i.e.
+\be
+ \epsilon_{rel}^{(n)}:=\|\Xl^{(n)}-\X \|/\| \X\|<\sigma_{rel}
+\ee
+\item The change made during in 1 iteration has become negligible, i.e. 
+\be
+|\epsilon_{rel}^{(n)}-\epsilon_{rel}^{(n-1)}|<\sigma_{it}
+\ee
+\end{enumerate}
 
 \subsection{GeomCG}
+The second algorithm, GeomCG, is the one presented in the paper written by Kressner, Steinlechner, Vandereycken \cite{GeomCG}. Their implementation of the algorithm is available on their website \cite{SiteANCHP} and is the one which was used here.
 
+The aim of GeomCG is to minimise the cost function
+\be
+f_{\X}(\Y)=\| P_{\Omega}\Y-P_{\Omega}\X\|^2
+\ee
+under the constraint $\Y \in \Mr$.
+
+The algorithm is based on the fact that $\Mr$  is a smooth subspace of $\R^{I_1\t I_2 \t I_3}$ and that, together with the inner product (\ref{innerProd}), it forms a Riemannian manifold.
+An extension of the non-linear Conjugate Gradient method is used to minimise the cost function $f_{\X}(\Y_k)$. The direction of optimisation and the step size are computed by projecting the euclidian gradient of $f_{\X}(\Y_k)$ into the tangent plan of $\Mr$ at position $\X$. After each optimisation the resulting tensor is retracted back onto $\Mr$, which ensures that the low-rank condition on $\Y$ remains satisfied.
 \section{Results}
 
 \subsection{Bus Sequence}
@@ -345,6 +373,8 @@ D.Kressner, M. Steinlechner and B.Vandereycken.{ \'Ecole Polytechnique F\'ed\'er
 
 \bibitem{Kolda-Bader}  T.G. Kolda and B.W. Bader. {Sandia National Laboratories}, 2009.
 \textit{Tensor Decomposition and Applications}. SIAM Review, Vol.51, No.3, pp. 455-500
+
+\bibitem{SiteANCHP} \url{http://anchp.epfl.ch/geomCG}
 \end{thebibliography}
 
 %\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
