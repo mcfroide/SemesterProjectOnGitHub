@@ -154,13 +154,11 @@ showstringspaces=false, frame=single}
 
 
 \section{Introduction}
-Error concealment is a domain of image processing which deals with
+Error concealment is a field of signal processing which deals with corruption and loss of data and aims at reducing the deterioration of the signal.
 
-Error typically in form of patches 
+As data are typically packetised for transmission over a network  or storage on a hardware, any data loss or corruption usually results in errors in the form of missing blocks.
 
-This report presents an error concealment algorithm, called Alternating Least Square, that reconstructs the corrupted patches by exploiting the low-rank property of a stack of similar patches. Results of the application of this algorithm to movie reconstruction and inpainting are presented here as well. 
-
-Moreover, for comparison purpose, the same movies and images were reconstructed using the algorithm GeomCG for low-rank approximation.
+This report presents an error concealment algorithm for images and videos. This method reconstructs the corrupted patches by exploiting the low-rank property of a stack of similar patches. Results obtained by application of this algorithm to movie reconstruction and inpainting are presented here, as well as a comparison with results from another low-rank tensor approximation method.
 
 \section{Basics of tensor algebra}
 Before looking at the error concealment algorithm in details, a few basic tools of tensor algebra need to be defined.
@@ -176,27 +174,27 @@ The $i-$rank of $\X$ is defined as the rank of its i$^{th}$ matricisation. The \
 \rank(\X):=\left[\rank(X_{(1)}),  \rank(X_{(2)}), \rank(X_{(3)})\right]
 \ee
 
-The \underline{i$^{th}$-mode produc}t of $\X$ with a matrix $M \in \R^{m\t I_i}$ is a tensor $\mathcal{Y} \in \R^{J_1\t J_2\t J_3}$, with $J_j=I_j$ for $j\neq i$, and $J_i=m$. $\mathcal{Y}$ is defined by means of the matricisation as follows:
+The \underline{i$^{th}$-mode product} of $\X$ with a matrix $M \in \R^{m\t I_i}$ is a tensor $\mathcal{Y} \in \R^{J_1\t J_2\t J_3}$, with $J_j=I_j$ for $j\neq i$, and $J_i=m$. $\mathcal{Y}$ is defined by means of the matricisation as follows:
 \be
 \mathcal{Y}=\X \t_{i} M \iff Y_{(i)}=MX_{(i)}
 \ee
-Note that the matricisation operation is a bijection from $ \R^{I_1\t I_2 \t I_3}$ into $\R^{ I_i\t \prod_{j\neq i}I_j}$. The product $\mathcal{Y}$ is thus uniquely determined by any of its matricisation.
+Note that the matricisation operation is a bijection from $ \R^{I_1\t I_2 \t I_3}$ into $\R^{ I_i\t \prod_{j\neq i}I_j}$. $\mathcal{Y}$ is thus uniquely determined by any of its matricisation.
 
-The \underline{inner product} of two tensors $\X, \Y in \R^{I_1\t I_2 \t I_3}$ is the sum of the product of their entries, that is to say:
+The \underline{inner product} of two tensors $\X, \Y \in \R^{I_1\t I_2 \t I_3}$ is the sum of the product of their entries, that is to say:
 \bee
 <\X,\Y>:=\sqrt{\sum\limits_{i_1=1}^{I_1}\sum\limits_{i_2=1}^{I_2}\sum\limits_{i_3=1}^{I_3} x_{i_1,i_2,i_3}y_{i_1,i_2,i_3}}
 \label{innerProd}
 \eee
 The induced \underline{norm} $\|\X\|:=\sqrt{<\X, \X>}$ is thus a generalisation of the matrix Frobenius norm to 3 dimensions.
 
-Any tensor $\X$ of multilinear rank $\rank(\X)=[r_1, r_2, r_3]$ can be decomposed into a core tensor $\C \in \R^{r_1\t r_2 \t r_3}$ and three orthogonal basis matrices $A_i \in \R^{I_i\t r_i}$, such that
+Any tensor $\X$ of multilinear rank $[r_1, r_2, r_3]$ can be decomposed into a core tensor $\C \in \R^{r_1\t r_2 \t r_3}$ and three orthogonal basis matrices $A_i \in \R^{I_i\t r_i}$, such that
 \bee
 \X=\C \t_1 A_1 \t_2 A_2 \t_3 A_3 
 \label{Tucker}
 \eee
 This is called the \underline{Tucker Decomposition} and is the basis of the {High-Order Singular Value Decomposition} (HOSVD) algorithm. 
 
-Note that a Tucker decomposition is not unique. Indeed, if $\X$ can be decomposed as in \autoref{Tucker} then for any $V_1\in \R^{r_1\times r_1}, V_2\in \R^{r_2\times r_2}, V_3\in \R^{r_3\times r_3}$ invertible, tho following decomposition holds as well:
+Note that a Tucker decomposition is not unique. Indeed, if $\X$ can be decomposed as in \autoref{Tucker} then for any invertible $V_1\in \R^{r_1\times r_1}, V_2\in \R^{r_2\times r_2}, V_3\in \R^{r_3\times r_3}$, the following decomposition holds as well:
 
 \be
 \X=\tilde{\C} \t_1 \tilde{A}_1 \t_2 \tilde{A}_2 \t_3 \tilde{A}_3 
@@ -233,7 +231,7 @@ HOSVD aims at computing a rank-$\left[R_1,R_2, R_3\right]$ approximation of a te
 \end{algorithm}
 
 
-This procedure can be viewed as a generalisation of the matrix Singular Value Decomposition (SVD) as a truncated SVD is performed on each matricisation of $\X$ to obtain a lower rank approximation. However, in contrast to the 2-dimensional case, the HOSVD does not lead to the best rank-$\left[R_1,R_2, R_3\right]$ approximation of $\X$. Let us denote the subspace of  all 3-dimensional tensors of rank $r=\left[R_1, R_2, R_3\right]$  by  $\Mr:=\{ \mathcal{T} \in \R^{I_1\t I_2 \t I_3} | \rank(\mathcal{T})=\left[R_1,R_2, R_3\right] \}$ and let $P_{\Mr}\X$ be a best approximation of $\X$ in the subspace $\Mr$ relatively to the norm defined above. If $P_{HO}\X$ represents the result of the HOSVD procedure applied to $\X$ then the following results holds \cite{GeomCG}:
+This procedure can be viewed as a generalisation of the matrix Singular Value Decomposition (SVD) as a truncated SVD is performed on each matricisation of $\X$ to obtain a lower rank approximation. However, in contrast to the 2-dimensional case, the HOSVD does not lead to the best rank-$\left[R_1,R_2, R_3\right]$ approximation of $\X$. Let us denote the subspace of  all 3-dimensional tensors of rank $r=\left[R_1, R_2, R_3\right]$  by  $\Mr:=\{ \mathcal{T} \in \R^{I_1\t I_2 \t I_3}\ |\ \rank(\mathcal{T})=\left[R_1,R_2, R_3\right] \}$ and let $P_{\Mr}\X$ be a best approximation of $\X$ in the subspace $\Mr$ relatively to the norm defined above. If $P_{HO}\X$ represents the result of the HOSVD procedure applied to $\X$ then the following results holds \cite{GeomCG}:
 \be
 \|\X-P_{HO}\X \|\leqslant \sqrt{3} \| \X-P_{\Mr}\X \|
 \ee
@@ -262,28 +260,28 @@ Once a $P^0$ is chosen for reconstruction of its missing entries, similar MBs th
 \| P_{\Omega}^0-P_{\Omega}^i\|_1=\sum \limits_{j} |P^0_j-P^i_j|
 \label{ErrorMatching}
 \eee
-where $j$ is an index that loops over all pixels of $\Omega$. All MBs are rescaled to have the same $L_2-norm$ as $P^0$ (on the set $\Omega$ only) before the matching error is computed. 
+where $j$ is an index that loops over all pixels of $\Omega$. All MBs are rescaled to have the same $L_2$-norm as $P^0$ (on the set $\Omega$ only) before the matching error is computed. 
 
 Note that $K$ needs to be defined as a user input, but in case less than $K$ "good matching" MBs are actually available in the reference frames, then only $K_{eff}<K$ MBs are effectively selected, in order to avoid taking into account random MBs which would pervert the results. 
 In my particular implementation, any MB with an error more then twice bigger than the best matching $P^i$ was discarded from the selection.
 
-It is important here to realise that generally the higher the number of reference frames for the selection of $P^i$s, the better the matching with $P^0$ and thus the better the reconstruction. However, the scanning of reference frames for detection of matching MBs is a very time-consuming process. The number of reference frames should therefore be a trade-off between computation time and quality of the results. 
+It is important here to realise that, generally, the higher the number of reference frames for the selection of $P^i$s, the better the matching with $P^0$ and thus the better the reconstruction. However, the scanning of reference frames for detection of matching MBs is a very time-consuming process. The number of reference frames should therefore be a trade-off between computation time and quality of the results. 
 
 $P^0$ and all the $P^i$s are then gathered into a 3-dimensional tensor $\X$ of size $N\t N\t K_{eff}$, where $P^0$ is the first slice of the tensor. Later in this report, $K$ will be used in place of $K_{eff}$ for the sake of simplicity, but it should be remembered that this $K$ might be smaller than the value given as user input.
 
 \subsection{Low-rank property of the tensor}
 \label{subsecIdeal}
 
-Ideally, if the objects in the movie were not moving and the camera was keeping the same view, then $\X$ would be composed of $K$ times the same patch. It could therefore be represented as a product between the 2D patch $P$ and a constant vector 1 in the $3^{rd}$ dimension. Allowing some small sparse noise $\mathcal{E}$, it would write:
+Ideally, if the objects in the movie were not moving and the camera was keeping the same view, then $\X$ would be composed of $K$ times the same patch. It could therefore be represented as a product between a 2D patch $P$ and a constant vector 1 in the $3^{rd}$ dimension. Allowing some small sparse noise $\mathcal{E}$, it would write:
 \bee
 \X= \Xl+\E=P\t_3 1+\E
 \label{ideal}
 \eee
-After decomposition of $\Xl$ int the Tucker format
+After decomposition of $\Xl$ in the Tucker format
 \be
 \X_l=\C\t_1 A_1 \t_2 A_2 \t_3 A_3
 \ee
-and comparison with \ref{ideal} we can write
+and comparison with \autoref{ideal} we can write
 \be
 P=\C \t_1 A_1\t_2 A_2 \mbox{ and } A_3=1
 \ee
@@ -321,8 +319,8 @@ The Alternating Least Square algorithm presented in the paper by Nguyen, Dao and
 
 While the multilinear rank $R_3$ is supposed to be small (it was set to 3 in the following examples), no assumption can be made on $R_1$ and $R_2$. These two variables are thus generally kept to their maximal possible value $N$.
 
-The ALS procedure is a modified version of the HOSVD presented in Algorithm \autoref{HOSVD}. It is a iterative process which updates the basis matrices $A_i$ one by one, keeping the other two constant. In this way, $A_3$ can be enforced at each iteration to fulfil an additional condition.
-Indeed, in the ideal case described in \autoref{subsecIdeal}, $A_3$ was a constant vector 1. Since we look for a solution which is know to be close to the ideal case, convergence can be helped by forcing the first vector of $A_3$ to be constant and normalised to 1.
+The ALS procedure is a modified version of the HOSVD presented in Algorithm \autoref{HOSVD}. It is an iterative process which updates the basis matrices $A_i$ one by one, keeping the other two constant. In this way, $A_3$ can be enforced at each iteration to fulfil an additional condition.
+Indeed, in the ideal case described in \autoref{subsecIdeal}, $A_3$ was a constant vector 1. Since we look for a solution which is known to be close to the ideal case, convergence can be helped by forcing the first vector of $A_3$ to be constant and normalised to 1.
 
 The procedure is considered to have reached convergence at iteration $n$ if one of these two conditions is fulfilled:
 \begin{enumerate}
@@ -345,7 +343,7 @@ f_{\X}(\Y)=\| P_{\Omega}\Y-P_{\Omega}\X\|^2
 \ee
 under the constraint $\Y \in \Mr$.
 
-The algorithm is based on the fact that $\Mr$  is a smooth subspace of $\R^{I_1\t I_2 \t I_3}$ and that, together with the inner product (\ref{innerProd}), it forms a Riemannian manifold.
+The algorithm is based on the fact that $\Mr$  is a smooth subspace of $\R^{I_1\t I_2 \t I_3}$ and that, together with the inner product of \autoref{innerProd}, it forms a Riemannian manifold.
 An extension of the non-linear Conjugate Gradient method is used to minimise the cost function $f_{\X}(\Y_k)$. The direction of optimisation and the step size are computed by projecting the euclidian gradient of $f_{\X}(\Y_k)$ into the tangent plan of $\Mr$ at position $\X$. After each optimisation the resulting tensor is retracted back onto $\Mr$, which ensures that the low-rank condition on $\Y$ remains satisfied.
 \section{Results}
 

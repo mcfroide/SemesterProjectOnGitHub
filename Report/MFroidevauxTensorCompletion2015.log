@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.5.4)  3 JUN 2015 18:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.5.4)  4 JUN 2015 09:15
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1463,18 +1463,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [1]
 
-Package hyperref Warning: No autoref name for `algorithm' on input line 206.
+Package hyperref Warning: No autoref name for `algorithm' on input line 204.
 
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 209.
-<MBs.png, id=70, 114.6684pt x 109.3686pt>
+put line 207.
+<MBs.png, id=69, 114.6684pt x 109.3686pt>
 File: MBs.png Graphic file (type png)
  <use MBs.png>
-Package pdftex.def Info: MBs.png used on input line 250.
+Package pdftex.def Info: MBs.png used on input line 248.
 (pdftex.def)             Requested size: 68.80156pt x 65.62164pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1491,7 +1488,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [3 <./MBs.png>]
 
-Package hyperref Warning: No autoref name for `algorithm' on input line 324.
+Package hyperref Warning: No autoref name for `algorithm' on input line 322.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1507,7 +1504,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [5]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 377.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 375.
 
  (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1522,12 +1519,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 Package atenddvi Info: Last page = 7.
 [6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 394.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 394.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 392.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 392.
  (./MFroidevauxTensorCompletion2015.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 394.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 394.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 394.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 392.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 392.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 392.
  ) 
 Here is how much of TeX's memory you used:
  30404 strings out of 493109
@@ -1536,7 +1533,7 @@ Here is how much of TeX's memory you used:
  33272 multiletter control sequences out of 15000+600000
  64316 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,12n,77p,828b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,12n,77p,830b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
 texlive/2014/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2014/t
 exmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2014/texmf-dist/
@@ -1559,7 +1556,7 @@ lmsy6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><
 /usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local
 /texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/l
 ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on MFroidevauxTensorCompletion2015.pdf (7 pages, 358188 bytes).
+Output written on MFroidevauxTensorCompletion2015.pdf (7 pages, 357987 bytes).
 PDF statistics:
  202 PDF objects out of 1000 (max. 8388607)
  169 compressed objects within 2 object streams
