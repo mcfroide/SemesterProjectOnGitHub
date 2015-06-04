@@ -138,7 +138,7 @@ for iFrame=1:lengthNFrame_
 end
 
 filename=['../Results/ComparisonBusAlgo2ReducedRank.mat'];
-save(filename, 'ErrorFro','RecoveredMovie');
+%save(filename, 'ErrorFro','RecoveredMovie');
 
 figure
 subplot(1,2,1)

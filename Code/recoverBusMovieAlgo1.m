@@ -28,7 +28,7 @@ sigma=1e-2; itMax=60; sigmaIterative=5e-6;
 nbNeighbours=5; % Nb of nearest previously recovered and corrupted future frames used in the tensor building step
 % Set to -1 to use all frames
 
-K=2*nbNeighbours+1;
+K=2*nbNeighbours+1; % This is equal to the number of reference frames from which to choose the patches similar to P0
 
 nFrame_=1:100;
 lengthNFrame_=length(nFrame_);

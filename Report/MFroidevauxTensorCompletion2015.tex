@@ -346,13 +346,34 @@ under the constraint $\Y \in \Mr$.
 The algorithm is based on the fact that $\Mr$  is a smooth subspace of $\R^{I_1\t I_2 \t I_3}$ and that, together with the inner product of \autoref{innerProd}, it forms a Riemannian manifold.
 An extension of the non-linear Conjugate Gradient method is used to minimise the cost function $f_{\X}(\Y_k)$. The direction of optimisation and the step size are computed by projecting the euclidian gradient of $f_{\X}(\Y_k)$ into the tangent plan of $\Mr$ at position $\X$. After each optimisation the resulting tensor is retracted back onto $\Mr$, which ensures that the low-rank condition on $\Y$ remains satisfied.
 \section{Results}
+In the following, $p$ denotes the corruption ratio, i.e. the proportion of corrupted pixels in every frame. The corruption of sub-blocks was done randomly in each frame separately.
 
-\subsection{Bus Sequence}
-\subsection{Inpainting}
+The original bus movie was downloaded from $\cite{CIF}$ in CIF format and was preprocessed so as to reduce the size of the problem and the computation time. The number of pixels in every frame was reduced by a factor 16 using cubic interpolation, and then cropped so as to keep only $151\t 196$ pixels per frame.
+
+\subsection{Reconstruction of Bus Sequence}
+Firstly, the bus movie was corrupted by removing sub-blocks of size $n\t n=N/2\t N/2=4\t 4$ with a corruption ratio $p=15\%$.
+The 100 first frames were then reconstructed by using ALS with the following parameters:
+\begin{itemize}
+\item MB size: $N=8$
+\item Rank of $\Xl$ tensor: $r=[N, N, 3]$
+\item Number of reference frames: $2\cdot 5+1=11$    \\ (the frame being reconstructed itself + 5 nearest previous frames + 5 nearest following frames)
+\end{itemize}
+
+\autoref{N8} shows the result obtained in the first frame. The sequence of all 100 frames can be viewed in the file \textit{recoveredBusN8.avi} in annex.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.8]{myposter}
+\caption{Left: 1$^{st}$ frame of corrupted sequence. Right: 1$^{st}$ frame of the reconstructed sequence. \label{N8}}
+\end{figure}
+  
+
 \subsection{Effect of the corruption ratio}
 
+\subsection{Inpainting}
+
 \section{Conclusion}
-\section{Suggestion for further research}
+%\section{Suggestion for further research}
 
 \begin{thebibliography}{9}
 %\bibitem{Allan} 
@@ -373,6 +394,8 @@ D.Kressner, M. Steinlechner and B.Vandereycken.{ \'Ecole Polytechnique F\'ed\'er
 \textit{Tensor Decomposition and Applications}. SIAM Review, Vol.51, No.3, pp. 455-500
 
 \bibitem{SiteANCHP} \url{http://anchp.epfl.ch/geomCG}
+
+\bibitem{CIF} \url{https://media.xiph.org/video/derf/}
 \end{thebibliography}
 
 %\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below

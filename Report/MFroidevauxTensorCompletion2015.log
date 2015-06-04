@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.5.4)  4 JUN 2015 09:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.5.4)  4 JUN 2015 15:11
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1467,7 +1467,7 @@ Package hyperref Warning: No autoref name for `algorithm' on input line 204.
 
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 207.
-<MBs.png, id=69, 114.6684pt x 109.3686pt>
+<MBs.png, id=67, 114.6684pt x 109.3686pt>
 File: MBs.png Graphic file (type png)
  <use MBs.png>
 Package pdftex.def Info: MBs.png used on input line 248.
@@ -1497,16 +1497,26 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [4]
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 357.
+
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[5]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 375.
+[5] <myposter.png, id=113, 458.6736pt x 159.4758pt>
+File: myposter.png Graphic file (type png)
+ <use myposter.png>
+Package pdftex.def Info: myposter.png used on input line 366.
+(pdftex.def)             Requested size: 366.93936pt x 127.5808pt.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 396.
 
- (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/t1lmtt.fd
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 
@@ -1518,48 +1528,53 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package atenddvi Info: Last page = 7.
-[6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 392.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 392.
+[6 <./myposter.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 415.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 415.
  (./MFroidevauxTensorCompletion2015.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 392.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 392.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 392.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 415.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 415.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 415.
  ) 
 Here is how much of TeX's memory you used:
- 30404 strings out of 493109
- 679442 string characters out of 6135005
+ 30443 strings out of 493109
+ 680380 string characters out of 6135005
  883711 words of memory out of 5000000
- 33272 multiletter control sequences out of 15000+600000
- 64316 words of font info for 52 fonts, out of 8000000 for 9000
+ 33305 multiletter control sequences out of 15000+600000
+ 64681 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,12n,77p,830b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
-texlive/2014/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2014/t
-exmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2014/texmf-dist/
-fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2014/texmf-dist/fonts/enc/
-dvips/lm/lm-mathit.enc}</usr/local/texlive/2014/texmf-dist/fonts/type1/public/l
-m/lmbx10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmbx12.p
-fb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/
-local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texl
-ive/2014/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2014/t
-exmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2014/texmf-dist/f
-onts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/
-public/lm/lmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/l
-mr12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmr17.pfb></
-usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/te
-xlive/2014/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2014/t
-exmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2014/texmf-dist/fo
-nts/type1/public/lm/lmri10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/
-public/lm/lmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/
-lmsy6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><
-/usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local
-/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/l
-ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on MFroidevauxTensorCompletion2015.pdf (7 pages, 357987 bytes).
+texlive/2014/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2014/
+texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2014/texmf-dist/fon
+ts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvi
+ps/lm/lm-mathex.enc}{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/lm/lm-m
+athit.enc}</usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmbx10.pfb>
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/loca
+l/texlive/2014/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive
+/2014/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2014/texm
+f-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2014/texmf-dist/fon
+ts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/pu
+blic/lm/lmmi8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmr
+10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmr12.pfb></us
+r/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/tex
+live/2014/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2014/te
+xmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2014/texmf-dist/fon
+ts/type1/public/lm/lmr9.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/pub
+lic/lm/lmri10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lms
+y10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></u
+sr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/te
+xlive/2014/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2014
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/
+2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on MFroidevauxTensorCompletion2015.pdf (7 pages, 416934 bytes).
 PDF statistics:
- 202 PDF objects out of 1000 (max. 8388607)
- 169 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 210 PDF objects out of 1000 (max. 8388607)
+ 175 compressed objects within 2 object streams
+ 38 named destinations out of 1000 (max. 500000)
+ 23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

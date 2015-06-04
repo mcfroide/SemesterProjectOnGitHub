@@ -85,7 +85,7 @@ end
 
 
 filename=['Algo1_Bus_N',num2str(N), '.mat'];
-save(filename, 'ErrorFro', 'PSNR', 'RecoveredMovie');
+%save(filename, 'ErrorFro', 'PSNR', 'RecoveredMovie');
 
 
 figure
