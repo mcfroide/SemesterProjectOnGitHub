@@ -15,8 +15,6 @@ X=CreateTensorX(P0,P);
 % imshow(double(X(:,:,1)))
 
 normX=norm(X);
-%X3=tenmat(X,3);
-%S=svd(X3.data);
 
 % Keff might be smaller than K if not enough matching MBs have been
 % selected
@@ -44,7 +42,6 @@ end
 
 % Complete unknown pixels of P0 with results of Xl
 P0_new=P0.*(P0>=0)+double(Xl(:,:,1)).*(P0<0);
-
 
 
 if i>=itMax

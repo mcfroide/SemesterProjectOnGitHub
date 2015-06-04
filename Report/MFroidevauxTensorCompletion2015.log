@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.5.4)  4 JUN 2015 15:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.5.4)  4 JUN 2015 17:17
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1513,13 +1513,47 @@ File: myposter.png Graphic file (type png)
  <use myposter.png>
 Package pdftex.def Info: myposter.png used on input line 366.
 (pdftex.def)             Requested size: 366.93936pt x 127.5808pt.
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 396.
+
+<XInitConvergence.png, id=118, 562.1pt x 421.575pt>
+File: XInitConvergence.png Graphic file (type png)
+ <use XInitConvergence.png>
+Package pdftex.def Info: XInitConvergence.png used on input line 375.
+(pdftex.def)             Requested size: 213.60022pt x 160.20015pt.
+
+Overfull \hbox (16.42397pt too wide) in paragraph at lines 375--376
+ [][] 
+ []
+
+<XInitRandom.png, id=119, 562.1pt x 421.575pt>
+File: XInitRandom.png Graphic file (type png)
+ <use XInitRandom.png>
+Package pdftex.def Info: XInitRandom.png used on input line 383.
+(pdftex.def)             Requested size: 213.60022pt x 160.20015pt.
+
+Overfull \hbox (16.42397pt too wide) in paragraph at lines 383--384
+ [][] 
+ []
 
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/lm/t1lmtt.fd
+Overfull \hbox (4.86664pt too wide) in paragraph at lines 373--386
+[]$[]$ $[]$ $[]$ 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[6 <./myposter.png>]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 419.
+
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-
+) 
 AED: lastpage setting LastPage
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1527,24 +1561,21 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-Package atenddvi Info: Last page = 7.
-[6 <./myposter.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 415.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 415.
- (./MFroidevauxTensorCompletion2015.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 415.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 415.
+Package atenddvi Info: Last page = 8.
+[7 <./XInitConvergence.png (PNG copy)> <./XInitRandom.png (PNG copy)>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 438.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 438.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 415.
+(./MFroidevauxTensorCompletion2015.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 438.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 438.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 438.
  ) 
 Here is how much of TeX's memory you used:
- 30443 strings out of 493109
- 680380 string characters out of 6135005
+ 30457 strings out of 493109
+ 680640 string characters out of 6135005
  883711 words of memory out of 5000000
- 33305 multiletter control sequences out of 15000+600000
+ 33315 multiletter control sequences out of 15000+600000
  64681 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,12n,77p,830b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1571,10 +1602,10 @@ sr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/te
 xlive/2014/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2014
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/
 2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on MFroidevauxTensorCompletion2015.pdf (7 pages, 416934 bytes).
+Output written on MFroidevauxTensorCompletion2015.pdf (8 pages, 444110 bytes).
 PDF statistics:
- 210 PDF objects out of 1000 (max. 8388607)
- 175 compressed objects within 2 object streams
- 38 named destinations out of 1000 (max. 500000)
- 23 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 223 PDF objects out of 1000 (max. 8388607)
+ 185 compressed objects within 2 object streams
+ 40 named destinations out of 1000 (max. 500000)
+ 33 words of extra memory for PDF output out of 10000 (max. 10000000)
 

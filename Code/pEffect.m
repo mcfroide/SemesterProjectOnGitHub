@@ -11,7 +11,7 @@ addpath('./ALS/');
 
 N=16; % Size of the Macro-Block
 
-p=65;
+p=15;
 filename=['Movies/BusCorruptedMovieN16p',num2str(p),'.mat'];
 load(filename);
 
@@ -43,7 +43,7 @@ for iFrame=1:lengthNFrame_
     nbIt=length(Coordinates);
     
     OriginalFrame=double(OriginalMovie(:,:,iFrame));
-    ErrorIt=zeros(nbIt,1);
+    ErrorIt=[];%zeros(nbIt,1);
     for n=1:nbIt
         if (mod(n,50)==1)
             display(['Iteration ',num2str(n),' out of ', num2str(nbIt)]);
@@ -66,7 +66,7 @@ for iFrame=1:lengthNFrame_
             Frame(i:i+N-1, j:j+N-1)=P0_new;
             
             P0_orgn=OriginalFrame(i:i+N-1, j:j+N-1);
-            ErrorIt(n)=FrobeniusRelativeError(P0_orgn, P0_new);
+            ErrorIt(end+1)=FrobeniusRelativeError(P0_orgn, P0_new);
         end
     end
     ErrorFrame(iFrame)=mean(ErrorIt);
@@ -78,7 +78,7 @@ end
 
 %filename=['../Results/ComparisonBusAlgo1.mat'];
 %save(filename, 'ErrorFro','RecoveredMovie'); 
-filename=['../Results/Algo1_Bus_N',num2str(N),'p',num2str(p),'NewError.mat'];
+filename=['../Results/Algo1_Bus_N',num2str(N),'p',num2str(p),'Final.mat'];
 save(filename, 'ErrorFrame','RecoveredMovie'); 
 
 beep

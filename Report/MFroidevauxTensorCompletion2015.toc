@@ -8,7 +8,7 @@
 \contentsline {subsection}{\numberline {4.1}Alternating Least Squares Algorithm (ALS)}{4}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}GeomCG}{5}{subsection.4.2}
 \contentsline {section}{\numberline {5}Results}{5}{section.5}
-\contentsline {subsection}{\numberline {5.1}Bus Sequence}{6}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Effect of the corruption ratio}{6}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Inpainting}{6}{subsection.5.3}
-\contentsline {section}{\numberline {6}Conclusion}{6}{section.6}
+\contentsline {subsection}{\numberline {5.1}Reconstruction of Bus Sequence}{6}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Effect of the corruption ratio}{7}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Inpainting}{7}{subsection.5.3}
+\contentsline {section}{\numberline {6}Conclusion}{7}{section.6}

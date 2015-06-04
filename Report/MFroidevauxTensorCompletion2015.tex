@@ -359,16 +359,41 @@ The 100 first frames were then reconstructed by using ALS with the following par
 \item Number of reference frames: $2\cdot 5+1=11$    \\ (the frame being reconstructed itself + 5 nearest previous frames + 5 nearest following frames)
 \end{itemize}
 
-\autoref{N8} shows the result obtained in the first frame. The sequence of all 100 frames can be viewed in the file \textit{recoveredBusN8.avi} in annex.
+\autoref{N8} shows the result obtained in the first frame. See how most of the reconstructed patches fit well in the image. The sequence of all 100 reconstructed frames can be viewed in the file \textit{recoveredBusN8.avi} in annex.
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.8]{myposter}
-\caption{Left: 1$^{st}$ frame of corrupted sequence. Right: 1$^{st}$ frame of the reconstructed sequence. \label{N8}}
+\caption{Left: 1$^{st}$ frame of the corrupted sequence. Right: 1$^{st}$ frame of the reconstructed sequence. \label{N8}}
 \end{figure}
   
+In order to test the importance of the initialisation of $P^0_{\bO}$ (line \ref{meanPi} of Algorithm  \ref{ALS algo}), the same computations were carried on the bus sequence, but, this time, with a random initial guess rather than the average over similar MBs. Typical results of the reconstruction in both cases are displayed in \autoref{InitAverage} and \autoref{InitRandom}.
+  
+\begin{figure}[h!]
+\begin{minipage}{0.45 \linewidth}
+ \centering
+\includegraphics[scale=0.38]{XInitConvergence}
+\caption{Corrupted MB (left), initialisation of $P^0_{\bO}$ using educated guess (middle), reconstructed MB (right)\label{InitAverage}}
+\end{minipage}
+\begin{minipage}{0.1 \linewidth}
+\ \ 
+\end{minipage}
+\begin{minipage}{0.45 \linewidth}
+ \centering
+\includegraphics[scale=0.38]{XInitRandom}
+\caption{Corrupted MB (left), random initialisation of $P^0_{\bO}$  (middle), poorly reconstructed MB (right) \label{InitRandom}}
+\end{minipage}
+\end{figure}
+
+Notice on \autoref{InitAverage} that the MB reconstructed by means of low-rank approximation is only slightly better than the simple average computed initially. The reconstructed MB is smoother but remains very close to the initial guess.
+
+\autoref{InitRandom} shows that the quality of the result depends strongly on the initialisation. This is due to the fact that ALS only computes a local optimisation around the initial guess.
+
+It should be noticed that in both cases the error stagnates after one iteration of ALS only.
 
 \subsection{Effect of the corruption ratio}
+
+The 
 
 \subsection{Inpainting}
 
