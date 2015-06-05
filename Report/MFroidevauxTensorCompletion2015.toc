@@ -12,5 +12,5 @@
 \contentsline {subsubsection}{\numberline {5.1.1}Importance of initial guess }{6}{subsubsection.5.1.1}
 \contentsline {subsubsection}{\numberline {5.1.2}Effect of the corruption ratio}{7}{subsubsection.5.1.2}
 \contentsline {subsubsection}{\numberline {5.1.3}Reconstruction with GeomCG}{8}{subsubsection.5.1.3}
-\contentsline {subsection}{\numberline {5.2}Inpainting}{8}{subsection.5.2}
-\contentsline {section}{\numberline {6}Conclusion}{10}{section.6}
+\contentsline {subsection}{\numberline {5.2}Inpainting}{10}{subsection.5.2}
+\contentsline {section}{\numberline {6}Conclusion and suggestion for further research }{11}{section.6}

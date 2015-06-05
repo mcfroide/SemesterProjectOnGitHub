@@ -39,7 +39,7 @@ n = [Mrows Mcols Mframe];
 
 K=11;
 
-R1=N; R2=N; R3=3;
+R1=N; R2=N; R3=1;
 r = [R1, R2, R3];
 
 opts = struct( 'maxiter', 60, 'tol', 1e-6, 'verbose', false );
@@ -85,38 +85,38 @@ for iFrame=1:lengthNFrame_
             [P,~]=SelectMBsTensor(RecoveredMovie,K,P0, nFrame, nbNeighbours);
             X=CreateTensorX(P0,P);
             KEff=size(X,3);
-            %********** Create XInit *************
-            A=InitializeA(N,KEff, R1, R2, R3);
-            %[Xl, A_new]=ComputeXl(A,X);
-            %XInit=ttensor;
+%             %********** Create XInit *************
+%             A=InitializeA(N,KEff, R1, R2, R3);
+%             %[Xl, A_new]=ComputeXl(A,X);
+%             %XInit=ttensor;
+%             
+%             A{3}(:,1)=1/KEff*ones(KEff,1);
+%             %
+%             % Loop over the 3 dimensions
+%             for ii=1:3
+%                 R{ii}=size(A{ii},2);
+%                 Y=X;
+%                 for jj=1:3
+%                     if jj~=ii
+%                         Y=ttm(Y,A{jj}',jj);
+%                     end
+%                 end
+%                 
+%                 % Unfold Y in mode i
+%                 Yi=tenmat(Y,ii);
+%                 [Q,~,~]=svd(Yi.data);
+%                 % Construct Ai with the first Ri principal components of Yi
+%                 A{ii}=Q(:,1:R{ii});
+%             end
+%             A{3}(:,1)=1/KEff*ones(KEff,1);
+%             
+%             
+%             % Compute core tensor of size R1xR2xR3
+%             G=ttm(X,{A{1}',A{2}',A{3}'});
+%             XInit=ttensor(G, A{1}, A{2},A{3});
+%             % *****************************************
             
-            A{3}(:,1)=1/KEff*ones(KEff,1);
-            %
-            % Loop over the 3 dimensions
-            for ii=1:3
-                R{ii}=size(A{ii},2);
-                Y=X;
-                for jj=1:3
-                    if jj~=ii
-                        Y=ttm(Y,A{jj}',jj);
-                    end
-                end
-                
-                % Unfold Y in mode i
-                Yi=tenmat(Y,ii);
-                [Q,~,~]=svd(Yi.data);
-                % Construct Ai with the first Ri principal components of Yi
-                A{ii}=Q(:,1:R{ii});
-            end
-            A{3}(:,1)=1/KEff*ones(KEff,1);
-            
-            
-            % Compute core tensor of size R1xR2xR3
-            G=ttm(X,{A{1}',A{2}',A{3}'});
-            XInit=ttensor(G, A{1}, A{2},A{3});
-            % *****************************************
-            
-            %XInit=makeRandTensor([N,N,KEff],r);
+            XInit=makeRandTensor([N,N,KEff],r);
             XSparse=CreateXSparse(P0,X);
             
             [resX, ~, ~] = geomCG( XSparse, XInit, [], opts);
@@ -143,22 +143,37 @@ filename=['../Results/GeomCG_NN1.mat'];
 figure
 for i=1:lengthNFrame_
 subplot(1,2,1)
-imshow(double(RecoveredMovie(:,:,i)))
+imshow(double(OriginalMovie(:,:,i)))
+title('Original')
 subplot(1,2,2)
-imshow(double(CorruptedMovie(:,:,i)))
+imshow(double(RecoveredMovie(:,:,i)))
+title('Reconstructed with GeomCG');
 drawnow
 pause
 end
+
+
+
+figure
+subplot(1,2,1)
+imshow(double(OriginalMovie(:,:,20)))
+title('Original')
+subplot(1,2,2)
+imshow(double(RecoveredMovie(:,:,20)))
+title('Reconstructed with GeomCG');
+
 
 %filename=['Algo2_Bus_N',num2str(N), '.mat'];
 %save(filename, 'ErrorFro', 'PSNR', 'RecoveredMovie');
 
 
-figure
-%plot(nFrame_,PSNR, '-*r');
-%hold on;
-plot(nFrame_,ErrorFrame, '--*b');
-xlabel('Frame index');
-ylabel('Relative error (Frobenius norm)');
-%legend('PSNR (dB)','||A_{restored}-A||_F/||A||_F (%)');
+
+
+% figure
+% %plot(nFrame_,PSNR, '-*r');
+% %hold on;
+% plot(nFrame_,ErrorFrame, '--*b');
+% xlabel('Frame index');
+% ylabel('Relative error (Frobenius norm)');
+% %legend('PSNR (dB)','||A_{restored}-A||_F/||A||_F (%)');
 

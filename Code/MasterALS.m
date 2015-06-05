@@ -44,6 +44,7 @@ for iFrame=1:lengthNFrame_
     
     OriginalFrame=double(OriginalMovie(:,:,iFrame));
     ErrorIt=[];%zeros(nbIt,1);
+    Savg=zeros(3,1);
     for n=1:nbIt
         if (mod(n,50)==1)
             display(['Iteration ',num2str(n),' out of ', num2str(nbIt)]);
@@ -60,7 +61,15 @@ for iFrame=1:lengthNFrame_
                 j=Coordinates(n,1);
                 P0=Frame(i:i+N-1, j:j+N-1);
             end
-            
+%             % ******* Check SV of X3 *******
+%             [P,~]=SelectMBsTensor(RecoveredMovie,K,P0, nFrame, nbNeighbours);
+%             X=CreateTensorX(P0,P);
+%             P0_orgn=OriginalFrame(i:i+N-1, j:j+N-1);
+%             X(:,:,1)=P0_orgn;
+%             X3=tenmat(X,3);
+%             S=svd(X3.data);
+%             Savg=Savg+S(1:3);
+%             % *******************************
             [P0_new, ~]=RecoverSubBlockTensor(RecoveredMovie,P0, K, R1, R2, R3, sigma, sigmaIterative, itMax,nFrame, nbNeighbours);
             RecoveredMovie(i:i+N-1, j:j+N-1,nFrame)=P0_new;
             Frame(i:i+N-1, j:j+N-1)=P0_new;
@@ -70,15 +79,14 @@ for iFrame=1:lengthNFrame_
         end
     end
     ErrorFrame(iFrame)=mean(ErrorIt);
+   % SV(iFrame,:)=Savg/length(ErrorIt);
 end
 
 %profile viewer
 %profile off
-
-%filename=['../Results/ComparisonBusAlgo1.mat'];
-%save(filename, 'ErrorFro','RecoveredMovie'); 
+ 
 filename=['../Results/ALS_NN1.mat'];
-save(filename, 'ErrorFrame','RecoveredMovie'); 
+%save(filename, 'ErrorFrame','RecoveredMovie'); 
 
 beep
 % 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.5.4)  5 JUN 2015 13:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.5.4)  5 JUN 2015 18:45
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1559,7 +1559,7 @@ File: pEffect.png Graphic file (type png)
 
 <use pEffect.png>
 Package pdftex.def Info: pEffect.png used on input line 413.
-(pdftex.def)             Requested size: 309.15596pt x 231.86696pt.
+(pdftex.def)             Requested size: 281.04932pt x 210.78697pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1586,13 +1586,24 @@ File: GrowthVsP-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: GrowthVsP-eps-converted-to.pdf used on input line 419.
 
 (pdftex.def)             Requested size: 252.94266pt x 189.70699pt.
+Package epstopdf Info: Source file: <CompareFrame.eps>
+(epstopdf)                    date: 2015-06-05 16:05:28
+(epstopdf)                    size: 161182 bytes
+(epstopdf)             Output file: <CompareFrame-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-06-05 16:05:35
+(epstopdf)                    size: 109452 bytes
+(epstopdf)             Command: <epstopdf --outfile=CompareFrame-eps-converted-
+to.pdf CompareFrame.eps>
+(epstopdf)             \includegraphics on input line 434.
+Package epstopdf Info: Output file is already uptodate.
 
-<InpaintingFacade.png, id=151, 461.5644pt x 104.5506pt>
-File: InpaintingFacade.png Graphic file (type png)
+<CompareFrame-eps-converted-to.pdf, id=150, 562.1pt x 421.575pt>
+File: CompareFrame-eps-converted-to.pdf Graphic file (type pdf)
 
-<use InpaintingFacade.png>
-Package pdftex.def Info: InpaintingFacade.png used on input line 436.
-(pdftex.def)             Requested size: 415.40413pt x 94.09467pt.
+<use CompareFrame-eps-converted-to.pdf>
+Package pdftex.def Info: CompareFrame-eps-converted-to.pdf used on input line 4
+34.
+(pdftex.def)             Requested size: 337.2626pt x 252.94695pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1601,10 +1612,59 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [8 <./pEffect.png (PNG copy)> <./GrowthVsP-eps-converted-to.pdf>]
-<InpaintingSnow.png, id=169, 458.6736pt x 86.724pt>
+Package epstopdf Info: Source file: <CompareErrorNew.eps>
+(epstopdf)                    date: 2015-06-05 16:33:49
+(epstopdf)                    size: 15194 bytes
+(epstopdf)             Output file: <CompareErrorNew-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-06-05 16:34:05
+(epstopdf)                    size: 11090 bytes
+(epstopdf)             Command: <epstopdf --outfile=CompareErrorNew-eps-convert
+ed-to.pdf CompareErrorNew.eps>
+(epstopdf)             \includegraphics on input line 456.
+Package epstopdf Info: Output file is already uptodate.
+
+<CompareErrorNew-eps-converted-to.pdf, id=164, 562.1pt x 421.575pt>
+File: CompareErrorNew-eps-converted-to.pdf Graphic file (type pdf)
+
+<use CompareErrorNew-eps-converted-to.pdf>
+Package pdftex.def Info: CompareErrorNew-eps-converted-to.pdf used on input lin
+e 456.
+(pdftex.def)             Requested size: 252.94266pt x 189.70699pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[9 <./CompareFrame-eps-converted-to.pdf>]
+<GeomCGRandom.pdf, id=183, 448.29938pt x 179.30148pt>
+File: GeomCGRandom.pdf Graphic file (type pdf)
+ <use GeomCGRandom.pdf>
+Package pdftex.def Info: GeomCGRandom.pdf used on input line 466.
+(pdftex.def)             Requested size: 313.80742pt x 125.51018pt.
+
+<InpaintingFacade.png, id=188, 461.5644pt x 104.5506pt>
+File: InpaintingFacade.png Graphic file (type png)
+
+<use InpaintingFacade.png>
+Package pdftex.def Info: InpaintingFacade.png used on input line 479.
+(pdftex.def)             Requested size: 415.40413pt x 94.09467pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[10 <./CompareErrorNew-eps-converted-to.pdf> <./GeomCGRandom.pdf>]
+<InpaintingSnow.png, id=221, 458.6736pt x 86.724pt>
 File: InpaintingSnow.png Graphic file (type png)
  <use InpaintingSnow.png>
-Package pdftex.def Info: InpaintingSnow.png used on input line 444.
+Package pdftex.def Info: InpaintingSnow.png used on input line 487.
 (pdftex.def)             Requested size: 412.80241pt x 78.05086pt.
 
 
@@ -1613,20 +1673,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[9 <./InpaintingFacade.png> <./InpaintingSnow.png>]
+[11 <./InpaintingFacade.png> <./InpaintingSnow.png>]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 519.
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
 
-[10]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 473.
-
- (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/t1lmtt.fd
+(/usr/local/texlive/2014/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Underfull \hbox (badness 10000) in paragraph at lines 477--478
+Underfull \hbox (badness 10000) in paragraph at lines 523--524
 [][][]$\T1/lmtt/m/n/10.95 http : / / images . forwallpaper . com / files / imag
 es / 0 / 0249 / 0249d4f1 / 113975 /
  []
@@ -1639,20 +1693,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-Package atenddvi Info: Last page = 12.
-[11]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 494.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 494.
+Package atenddvi Info: Last page = 13.
+[12]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 540.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 540.
  (./MFroidevauxTensorCompletion2015.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 494.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 494.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 494.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 540.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 540.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 540.
  ) 
 Here is how much of TeX's memory you used:
- 30503 strings out of 493109
- 681418 string characters out of 6135005
+ 30537 strings out of 493109
+ 682025 string characters out of 6135005
  883711 words of memory out of 5000000
- 33342 multiletter control sequences out of 15000+600000
+ 33358 multiletter control sequences out of 15000+600000
  64681 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,12n,77p,830b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1679,11 +1733,11 @@ sr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/te
 xlive/2014/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2014
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/
 2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on MFroidevauxTensorCompletion2015.pdf (12 pages, 1147038 bytes)
+Output written on MFroidevauxTensorCompletion2015.pdf (13 pages, 1320859 bytes)
 .
 PDF statistics:
- 276 PDF objects out of 1000 (max. 8388607)
- 224 compressed objects within 3 object streams
- 53 named destinations out of 1000 (max. 500000)
- 58 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 326 PDF objects out of 1000 (max. 8388607)
+ 260 compressed objects within 3 object streams
+ 57 named destinations out of 1000 (max. 500000)
+ 73 words of extra memory for PDF output out of 10000 (max. 10000000)
 

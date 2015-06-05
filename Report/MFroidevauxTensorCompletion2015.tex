@@ -158,7 +158,7 @@ Error concealment is a field of signal processing which deals with corruption an
 
 As data are typically packetised for transmission over a network  or storage on a hardware, any data loss or corruption usually results in errors in the form of missing blocks.
 
-This report presents an error concealment algorithm for images and videos. This method reconstructs the corrupted patches by exploiting the low-rank property of a stack of similar patches. Results obtained by application of this algorithm to movie reconstruction and inpainting are presented here, as well as a comparison with results from another low-rank tensor approximation method.
+This report presents an error concealment algorithm for images and videos. This method reconstructs the corrupted blocks by exploiting the low-rank property of a stack of similar patches. Results obtained by application of this algorithm to movie reconstruction and inpainting are presented here, as well as a comparison with results from another low-rank tensor approximation method.
 
 \section{Basics of tensor algebra}
 Before looking at the error concealment algorithm in details, a few basic tools of tensor algebra need to be defined.
@@ -311,7 +311,7 @@ The Alternating Least Square algorithm presented in the paper by Nguyen, Dao and
 \State $A_i$=first $R_i$ principal components of $Y_i$
 \EndFor
 \State $\C=\X\t_1 A_1^{\top}\t_2 A_2^{\top}\t_3 A_3^{\top}$
-\State $\X_l=\C\t_1 A_1 \t_2 A_2 \t_3 A_3$
+\State $\X_l=\C\t_1 A_1 \t_2 A_2 \t_3 A_3$ \label{line Xl}
 \State If convergence is reached, stop ; else return to Step \ref{here}
 \State Recover missing area in $P^0$: $(P^0)_{\bO}=(\Xl(:,:,1))_{\bO}$
 \end{algorithmic}
@@ -339,7 +339,7 @@ The second algorithm, GeomCG, is the one presented in the paper written by Kress
 
 The aim of GeomCG is to minimise the cost function
 \be
-f_{\X}(\Y)=\| P_{\Omega}\Y-P_{\Omega}\X\|^2
+f_{\X}(\Y):=\| P_{\Omega}\Y-P_{\Omega}\X\|^2
 \ee
 under the constraint $\Y \in \Mr$.
 
@@ -410,7 +410,7 @@ In each frame, every reconstructed MB was compared with the original one, and th
 In order to estimate the strength of the error growth, the values displayed in \autoref{pEffect} were averaged over the 30 frames for each $p$. \autoref{GrowthVsP} shows that the rate of growth of the error is faster than exponential since the curve does not form a straight line in semilogarithmic scale.
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.55]{pEffect}
+\includegraphics[scale=0.5]{pEffect}
 \caption{\label{pEffect}}
 \end{figure}
 
@@ -422,11 +422,51 @@ In order to estimate the strength of the error growth, the values displayed in \
 
 \subsubsection{Reconstruction with GeomCG}
 
-The whole procedure was kept the same as with ALS, except for the low-rank approximation of the $\X$ tensor, which was performed with GeomCG.
+The whole procedure was kept the same as with ALS, except for the low-rank approximation of the $\X$ tensor, which was performed with GeomCG. As initial guess, GeomCG was provided with the result for $\Xl$ given at line \ref{line Xl} in Algorithm \ref{ALS algo}  after a single iteration.
 
-It was noticed that the GeomCG algorithm could not provide acceptable results when the multilinear rank $[R_1,R_2, R_3]$ was set to high. The values of the reconstructed pixels were indeed out of the expected range [0, 256].
+It was noticed that the GeomCG algorithm could not provide acceptable results when the mode-3 rank $R_3$ was set too high. The values of the reconstructed pixels were then out of range.
 
-For this reason, the computations were 
+For this reason, the computations with GeomCG, as well as with ALS, were done with the following multilinear rank: $r=[R_1, R_2, R_3]=[N,N,1]$. 
+
+See on \autoref{CompareFrame} that the results returned by both algorithm are equivalent. This can be explained by the fact that ALS converges in a single iteration, and that this result was provided to GeomCG as initial guess. GeomCG therefore does not have much to optimise from the result of ALS.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.6]{CompareFrame}
+\caption{ Same results are obtained with ALS and GeomCG (here frame 20)\label{CompareFrame}}
+\end{figure}
+
+To be convinced that the results were actually the same, the error has been plotted in \autoref{CompareError}. 
+
+Moreover, the error of the reconstruction computed with ALS and $R_3=3$ was compared to both ALS and GeomCG with $R_3=1$.
+Note that all results are the same here. 
+
+This means that a rank-1 approximation of $\X$ already captures most of its structure. The average of the three first singular values $\sigma_1,\sigma_2, \sigma_3 $ of $\X_{(3)}$  (where, in the first slice of $\X$, $P^0_{\bO}$ was replaced by the pixels of the original image) was computed over all tensors $\X$. This lead to the following results:
+\be
+\sigma_1=18.1367, \sigma_2= 1.7986, \sigma_3=1.2682 
+\ee
+and thus 
+
+\be
+\frac{\sigma_2}{\sigma_1}=9.9\%\ \ \ \mbox{    and    }\ \ \ \frac{\sigma_3}{\sigma_1}=7\%
+\ee
+
+Therefore, even though the 2$^{nd}$ and 3$^{rd}$ singular values of $\X_{(3)}$ are not negligible in comparison  to $\sigma_1$, the results of ALS do not seem to improve significantly when $R_3$ is set to 3.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.45]{CompareErrorNew}
+\caption{The error is the same with ALS and GeomCG \label{CompareError}}
+\end{figure}
+
+Finally GeomCG was provided, as a test, with a random initial guess instead of the result returned by one iteration of ALS. The result of a typical frame can be seen in \autoref{GeomCGRandom}. Observe how the reconstruction of some MBs is completely out of range.
+By decreasing $R_1$ and $R_2$, the number of wrongly reconstructed MBs decreases as well. However, even with $R_1=R_2=N/2, R_3=1$, most frames reconstructed with GeomCG still contained at least one MB that was out of range.
+Recall that decreasing $R_1$ and $R_2$ forces the reconstructed MB to have a lower-rank, even though the original MB might have been full-rank. Too low $R_1$ and $R_3$ therefore damage the quality of the reconstruction.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.7]{GeomCGRandom}
+\caption{GeomCG returns poor results when provided with a random initial guess (here frame 20)\label{GeomCGRandom}}
+\end{figure}
+ 
 \subsection{Inpainting}
 
 The images used for this inpainting experiment were downloaded from \cite{facade} and \cite{snow}. The number of pixels was reduced by spatial interpolation for the sake of rapidity. 
@@ -448,11 +488,14 @@ The aim with the picture of the snowy park was to make the bank disappear by del
 \caption{Left: Original image. Middle: Deletion of the bank. Right: Reconstruction without the bank.\label{Snowy}}
 \end{figure}
 
+\section{Conclusion and suggestion for further research }
+The ALS algorithm which has been implemented for this report shows some successful results of movie reconstruction and inpainting.
+
+The final reconstruction depends strongly on the selection of similar MBs in the set of reference frames. This selection step is actually the bottleneck of the algorithm in term of computation time. It would therefore by interesting to find a way to optimise the search of mathcing MBs.
+  
+Finally, the size of the MBs is a parameter which is left free for the user to tune. It is however often not clear what value would be optimal for a given problem, and the smaller $N$ does not always mean the better the reconstruction. It would therefore be useful to characterise the optimal $N$ depending on the image resolution or the shape of the corrupted regions.
 
 
-
-\break
-\section{Conclusion}
 %\section{Suggestion for further research}
 \break
 \begin{thebibliography}{9}
