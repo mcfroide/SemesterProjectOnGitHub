@@ -1,4 +1,4 @@
-function [P,S]=SelectMBsTensor(Movie, K, P0, iFrame, nbNeighbours)
+function [P,S]=SelectMBs(Movie, K, P0, iFrame, nbNeighbours)
 % nbNeighbours is th nb of nearest previously recovered and nb of corrupted
 % future frames used in the tensor building step. Set it to -1 to use all frames
 % K is the maximal nb of MBs to select into P.
@@ -9,13 +9,6 @@ N=size(P0,1);
 Omega=(P0>=0); % Set of clean pixels
 Pi={};
 S=[];
-
-% nbBlocksPerColumn=floor(Ni/N);
-% nbBlocksPerRow=floor(Nj/N);
-% nbBlocks=nbBlocksPerColumn*nbBlocksPerRow;
-% S=-1*ones(nbBlocks*length(FramesSet),1);
-% index=0;
-
 
 if nbNeighbours==-1
     FramesSet=1:NFrames;

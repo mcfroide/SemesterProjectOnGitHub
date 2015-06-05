@@ -1,9 +1,7 @@
-function [CoordinatesSorted]=SortAllP0Tensor(N,Frame)
+function [CoordinatesSorted]=SortAllP0(N,Frame)
 % Find all MBs in the frame which need to be completed.
 % N is the size of the MB.
 
-%sz=size(Movie);
-%Ni=sz(1); Nj=sz(2);
 Ni=size(Frame,1); Nj=size(Frame,2);
 NbGoodPixels=[];
 Coordinates=[];

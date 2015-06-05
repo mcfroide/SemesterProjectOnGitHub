@@ -13,15 +13,9 @@ addpath('../');
 
 
 OriginalImage=rgb2gray(imread('Victorian_Street_Lamp.jpg'));
-%OriginalImage = imresize(OriginalImage, 0.25);
 
-%imshow(OriginalImage)
-%imshow(OriginalImage);
+CorruptedImage=double(OriginalImage);
 
-CorruptedImage=double(OriginalImage);%double(OriginalImage);
-%CorruptedImage=(CorruptedImage);
-
-%size(Image)
 CorruptedImage(170:1750,500:528)=-1;
 CorruptedImage(290:250,485:533)=-1;
 CorruptedImage(250:300,475:553)=-1;

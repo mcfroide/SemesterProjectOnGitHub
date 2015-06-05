@@ -4,7 +4,14 @@ close all;
 files={};
 p=[];
 
-colors={'-or', '-ob', '-ok', '-om','-oc', '-og', '--xr','--xb','--xk'};
+cc=autumn(10);
+orange=cc(7,:);
+
+%colors={'-or', '-ob', '-ok', '-om','-oc', '-og', '--xr','--xb','--xk',orange};
+colors={'r', 'b', 'k', 'm','c', 'g',orange, 'r','b','k',};
+markers={'o', 'x', '>', 'sq', '+','d', '*'};
+
+
 
 % load 'Algo1_Bus_N16p15.mat';
 % 
@@ -25,10 +32,10 @@ listing = dir;
 for i=length(listing):-1:1
    currentFile=listing(i).name;
    if length(currentFile)<15
-   elseif (strcmp(currentFile(1:14), 'Algo1_Bus_N16p') && strcmp(currentFile(end-11:end), 'NewError.mat'))
+   elseif (strcmp(currentFile(1:14), 'Algo1_Bus_N16p') && strcmp(currentFile(end-8:end), 'Final.mat'))
        files{end+1}=currentFile;
        %p(end+1)=str2num(currentFile(15:end-4))
-       p(end+1)=str2num(currentFile(15:end-12));
+       p(end+1)=str2num(currentFile(15:end-9))
    end
 end
 
@@ -48,14 +55,15 @@ hold on;
 grid on;
 xlabel('Frame index');
 ylabel('Mean relative error of reconstructed MBs'); %||A_{restored}-A||_F/||A||_F
+axis([ 1 30 0.05 0.45])
 
 for i=1:length(files)
    currentFile=files{i};
    %nbCorruptedBlocks=round(p(i)*nbBlocks);
-   pStr{i}=['p=',currentFile(15:end-12),'%'];
+   pStr{i}=['p=',currentFile(15:end-9),'%'];
    load(currentFile);  
    M(i)=mean(ErrorFrame);
-   plot(1:length(ErrorFrame),ErrorFrame, colors{i})
+   plot(1:length(ErrorFrame),ErrorFrame, 'Marker', markers{i},'color', colors{i} );%colors{i})
 end
 legend(pStr)
 
@@ -76,4 +84,4 @@ semilogy(nodes,Interpp, '--r')
 xlabel('p [%]');
 ylabel('Mean Relative Error')
 LinIntString=[num2str(PP(2),2),'exp(',num2str(PP(1),2),'p)'];
-legend('Experimental results', LinIntString)
+legend('Experimental results', LinIntString,'Location','Best')

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.5.4)  4 JUN 2015 17:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.5.4)  5 JUN 2015 13:19
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1467,7 +1467,7 @@ Package hyperref Warning: No autoref name for `algorithm' on input line 204.
 
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 207.
-<MBs.png, id=67, 114.6684pt x 109.3686pt>
+<MBs.png, id=65, 114.6684pt x 109.3686pt>
 File: MBs.png Graphic file (type png)
  <use MBs.png>
 Package pdftex.def Info: MBs.png used on input line 248.
@@ -1508,34 +1508,34 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[5] <myposter.png, id=113, 458.6736pt x 159.4758pt>
+[5] <myposter.png, id=111, 458.6736pt x 159.4758pt>
 File: myposter.png Graphic file (type png)
  <use myposter.png>
 Package pdftex.def Info: myposter.png used on input line 366.
 (pdftex.def)             Requested size: 366.93936pt x 127.5808pt.
 
-<XInitConvergence.png, id=118, 562.1pt x 421.575pt>
+<XInitConvergence.png, id=116, 562.1pt x 421.575pt>
 File: XInitConvergence.png Graphic file (type png)
  <use XInitConvergence.png>
-Package pdftex.def Info: XInitConvergence.png used on input line 375.
+Package pdftex.def Info: XInitConvergence.png used on input line 378.
 (pdftex.def)             Requested size: 213.60022pt x 160.20015pt.
 
-Overfull \hbox (16.42397pt too wide) in paragraph at lines 375--376
+Overfull \hbox (16.42397pt too wide) in paragraph at lines 378--379
  [][] 
  []
 
-<XInitRandom.png, id=119, 562.1pt x 421.575pt>
+<XInitRandom.png, id=117, 562.1pt x 421.575pt>
 File: XInitRandom.png Graphic file (type png)
  <use XInitRandom.png>
-Package pdftex.def Info: XInitRandom.png used on input line 383.
+Package pdftex.def Info: XInitRandom.png used on input line 386.
 (pdftex.def)             Requested size: 213.60022pt x 160.20015pt.
 
-Overfull \hbox (16.42397pt too wide) in paragraph at lines 383--384
+Overfull \hbox (16.42397pt too wide) in paragraph at lines 386--387
  [][] 
  []
 
 
-Overfull \hbox (4.86664pt too wide) in paragraph at lines 373--386
+Overfull \hbox (4.86664pt too wide) in paragraph at lines 376--389
 []$[]$ $[]$ $[]$ 
  []
 
@@ -1548,12 +1548,90 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[6 <./myposter.png>]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 419.
+[6 <./myposter.png>] <seePEffect.png, id=132, 722.7pt x 283.2984pt>
+File: seePEffect.png Graphic file (type png)
+
+<use seePEffect.png>
+Package pdftex.def Info: seePEffect.png used on input line 404.
+(pdftex.def)             Requested size: 433.62334pt x 169.98035pt.
+ <pEffect.png, id=136, 562.1pt x 421.575pt>
+File: pEffect.png Graphic file (type png)
+
+<use pEffect.png>
+Package pdftex.def Info: pEffect.png used on input line 413.
+(pdftex.def)             Requested size: 309.15596pt x 231.86696pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[7 <./XInitConvergence.png (PNG copy)> <./XInitRandom.png (PNG copy)> <./seePEf
+fect.png>]
+Package epstopdf Info: Source file: <GrowthVsP.eps>
+(epstopdf)                    date: 2015-06-05 09:42:05
+(epstopdf)                    size: 12049 bytes
+(epstopdf)             Output file: <GrowthVsP-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-06-05 09:42:17
+(epstopdf)                    size: 7865 bytes
+(epstopdf)             Command: <epstopdf --outfile=GrowthVsP-eps-converted-to.
+pdf GrowthVsP.eps>
+(epstopdf)             \includegraphics on input line 419.
+Package epstopdf Info: Output file is already uptodate.
+ <GrowthVsP-eps-converted-to.pdf, id=146, 562.1pt x 421.575pt>
+File: GrowthVsP-eps-converted-to.pdf Graphic file (type pdf)
+
+<use GrowthVsP-eps-converted-to.pdf>
+Package pdftex.def Info: GrowthVsP-eps-converted-to.pdf used on input line 419.
+
+(pdftex.def)             Requested size: 252.94266pt x 189.70699pt.
+
+<InpaintingFacade.png, id=151, 461.5644pt x 104.5506pt>
+File: InpaintingFacade.png Graphic file (type png)
+
+<use InpaintingFacade.png>
+Package pdftex.def Info: InpaintingFacade.png used on input line 436.
+(pdftex.def)             Requested size: 415.40413pt x 94.09467pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[8 <./pEffect.png (PNG copy)> <./GrowthVsP-eps-converted-to.pdf>]
+<InpaintingSnow.png, id=169, 458.6736pt x 86.724pt>
+File: InpaintingSnow.png Graphic file (type png)
+ <use InpaintingSnow.png>
+Package pdftex.def Info: InpaintingSnow.png used on input line 444.
+(pdftex.def)             Requested size: 412.80241pt x 78.05086pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[9 <./InpaintingFacade.png> <./InpaintingSnow.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[10]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 473.
 
  (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) 
+)
+Underfull \hbox (badness 10000) in paragraph at lines 477--478
+[][][]$\T1/lmtt/m/n/10.95 http : / / images . forwallpaper . com / files / imag
+es / 0 / 0249 / 0249d4f1 / 113975 /
+ []
+
+
 AED: lastpage setting LastPage
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1561,21 +1639,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-Package atenddvi Info: Last page = 8.
-[7 <./XInitConvergence.png (PNG copy)> <./XInitRandom.png (PNG copy)>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 438.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 438.
-
-(./MFroidevauxTensorCompletion2015.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 438.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 438.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 438.
+Package atenddvi Info: Last page = 12.
+[11]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 494.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 494.
+ (./MFroidevauxTensorCompletion2015.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 494.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 494.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 494.
  ) 
 Here is how much of TeX's memory you used:
- 30457 strings out of 493109
- 680640 string characters out of 6135005
+ 30503 strings out of 493109
+ 681418 string characters out of 6135005
  883711 words of memory out of 5000000
- 33315 multiletter control sequences out of 15000+600000
+ 33342 multiletter control sequences out of 15000+600000
  64681 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,12n,77p,830b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1602,10 +1679,11 @@ sr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/te
 xlive/2014/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2014
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/
 2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on MFroidevauxTensorCompletion2015.pdf (8 pages, 444110 bytes).
+Output written on MFroidevauxTensorCompletion2015.pdf (12 pages, 1147038 bytes)
+.
 PDF statistics:
- 223 PDF objects out of 1000 (max. 8388607)
- 185 compressed objects within 2 object streams
- 40 named destinations out of 1000 (max. 500000)
- 33 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 276 PDF objects out of 1000 (max. 8388607)
+ 224 compressed objects within 3 object streams
+ 53 named destinations out of 1000 (max. 500000)
+ 58 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,7 +1,7 @@
-function [P0_new,err]=RecoverSubBlockTensor(Movie,P0, K, R1, R2, R3, sigma, sigmaIterative, itMax, iFrame, nbNeighbours)
+function [P0_new,err]=RecoverSubBlock(Movie,P0, K, R1, R2, R3, sigma, sigmaIterative, itMax, iFrame, nbNeighbours)
 % Returns a completed version of P0, computed using the Alteranting Least Square algorithm
 
-% Select (at most) K MBs similar to P0 on its set of known pixels
+% Select (at most) K-1 MBs similar to P0 on its set of known pixels
 [P,~]=SelectMBsTensor(Movie,K,P0, iFrame, nbNeighbours);
 
 % Create inital tensor from the set of selested MBs

@@ -22,4 +22,4 @@ movForeman=loadFileY4m(filename, width, height, nrFrame);
 movForeman=movForeman/256.0;
 
 
-save('ForemanMovie', movForeman);
+%save('ForemanMovie', movForeman);

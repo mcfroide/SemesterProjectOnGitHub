@@ -255,14 +255,14 @@ In each frame of the movie separately, all MBs containing corrupted entries are 
 We call $P^0$ a corrupted MB and $\Omega$ the set of its clean and concealed pixels.
 $P^0$s with a larger set $\Omega$ will be reconstructed first.
 
-Once a $P^0$ is chosen for reconstruction of its missing entries, similar MBs that are fully clean will be looked for in a some defined reference frames. We call these similar MBs $P^i$ and seek to select the $K$  $P^i$s which best match $P^0$. The best matching $P^i$ is defined as the one which minimises the error
+Once a $P^0$ is chosen for reconstruction of its missing entries, similar MBs that are fully clean will be looked for in a some defined reference frames. We call these similar MBs $P^i$ and seek to select the $K-1$  $P^i$s which best match $P^0$. The best matching $P^i$ is defined as the one which minimises the error
 \bee
 \| P_{\Omega}^0-P_{\Omega}^i\|_1=\sum \limits_{j} |P^0_j-P^i_j|
 \label{ErrorMatching}
 \eee
 where $j$ is an index that loops over all pixels of $\Omega$. All MBs are rescaled to have the same $L_2$-norm as $P^0$ (on the set $\Omega$ only) before the matching error is computed. 
 
-Note that $K$ needs to be defined as a user input, but in case less than $K$ "good matching" MBs are actually available in the reference frames, then only $K_{eff}<K$ MBs are effectively selected, in order to avoid taking into account random MBs which would pervert the results. 
+Note that $K$ needs to be defined as a user input, but in case less than $K-1$ "good matching" MBs are actually available in the reference frames, then only $K_{eff}-1<K-1$ MBs are effectively selected, in order to avoid taking into account random MBs which would pervert the results. 
 In my particular implementation, any MB with an error more then twice bigger than the best matching $P^i$ was discarded from the selection.
 
 It is important here to realise that, generally, the higher the number of reference frames for the selection of $P^i$s, the better the matching with $P^0$ and thus the better the reconstruction. However, the scanning of reference frames for detection of matching MBs is a very time-consuming process. The number of reference frames should therefore be a trade-off between computation time and quality of the results. 
@@ -350,7 +350,7 @@ In the following, $p$ denotes the corruption ratio, i.e. the proportion of corru
 
 The original bus movie was downloaded from $\cite{CIF}$ in CIF format and was preprocessed so as to reduce the size of the problem and the computation time. The number of pixels in every frame was reduced by a factor 16 using cubic interpolation, and then cropped so as to keep only $151\t 196$ pixels per frame.
 
-\subsection{Reconstruction of Bus Sequence}
+\subsection{Reconstruction of the Bus Sequence}
 Firstly, the bus movie was corrupted by removing sub-blocks of size $n\t n=N/2\t N/2=4\t 4$ with a corruption ratio $p=15\%$.
 The 100 first frames were then reconstructed by using ALS with the following parameters:
 \begin{itemize}
@@ -366,7 +366,10 @@ The 100 first frames were then reconstructed by using ALS with the following par
 \includegraphics[scale=0.8]{myposter}
 \caption{Left: 1$^{st}$ frame of the corrupted sequence. Right: 1$^{st}$ frame of the reconstructed sequence. \label{N8}}
 \end{figure}
-  
+ 
+ All further results were obtained with a MB size $N=16$ to reduce the computation time.
+ \subsubsection{Importance of initial guess }
+
 In order to test the importance of the initialisation of $P^0_{\bO}$ (line \ref{meanPi} of Algorithm  \ref{ALS algo}), the same computations were carried on the bus sequence, but, this time, with a random initial guess rather than the average over similar MBs. Typical results of the reconstruction in both cases are displayed in \autoref{InitAverage} and \autoref{InitRandom}.
   
 \begin{figure}[h!]
@@ -389,17 +392,69 @@ Notice on \autoref{InitAverage} that the MB reconstructed by means of low-rank a
 
 \autoref{InitRandom} shows that the quality of the result depends strongly on the initialisation. This is due to the fact that ALS only computes a local optimisation around the initial guess.
 
+By selecting a higher number of $P^i$ in the tensor building step (bigger $K$), the effect of the initial guess should decrease. This would however probably lead to the selection of poor matches and degrade the quality of the concealment.
+
 It should be noticed that in both cases the error stagnates after one iteration of ALS only.
 
-\subsection{Effect of the corruption ratio}
+\subsubsection{Effect of the corruption ratio}
+The effect of $p$ on the quality of the results was then investigated. Observe on \autoref{seePEffect} how the reconstruction of the 15$^{th}$ frame becomes relatively bad for $p\geqslant 35\%$. This is due to the fact that it becomes harder to find clean similar patches in the set of reference frames when $p$ is higher. The tensor $\X$ thus has to be formed from MBs that do not fit well with the MB being reconstructed.
 
-The 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.6]{seePEffect}
+\caption{The quality of the reconstruction depends on the percentage of corrupted pixels\label{seePEffect}}
+\end{figure}
 
+In each frame, every reconstructed MB was compared with the original one, and the relative error in Frobenius norm was computed. \autoref{pEffect} shows the average of this error over each frame for different values of $p$. Even though the error is not constant over different frames, it can  be noticed that generally the smaller $p$, the smaller the error. Moreover the rate of growth of the error seems to increase with $p$.
+
+In order to estimate the strength of the error growth, the values displayed in \autoref{pEffect} were averaged over the 30 frames for each $p$. \autoref{GrowthVsP} shows that the rate of growth of the error is faster than exponential since the curve does not form a straight line in semilogarithmic scale.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.55]{pEffect}
+\caption{\label{pEffect}}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.45]{GrowthVsP.eps}
+\caption{\label{GrowthVsP}}
+\end{figure}
+
+\subsubsection{Reconstruction with GeomCG}
+
+The whole procedure was kept the same as with ALS, except for the low-rank approximation of the $\X$ tensor, which was performed with GeomCG.
+
+It was noticed that the GeomCG algorithm could not provide acceptable results when the multilinear rank $[R_1,R_2, R_3]$ was set to high. The values of the reconstructed pixels were indeed out of the expected range [0, 256].
+
+For this reason, the computations were 
 \subsection{Inpainting}
 
+The images used for this inpainting experiment were downloaded from \cite{facade} and \cite{snow}. The number of pixels was reduced by spatial interpolation for the sake of rapidity. 
+
+In both cases (see \autoref{Facade} and \autoref{Snowy}), a portion of the image was deleted by hand, and then reconstructed with a MB size $N=8$.
+
+The aim with the first picture was to test the ability of the ALS algorithm to reconstruct a regular texture. It can be observed that the horizontal stripes are very well recovered as a prolongation of the stripes at the boundary. In the opposite, internal vertical white stripes which are not a prolongation from anything at the boundary are not recovered at all. More precisely, instead of reconstructing clear vertical lines at defined locations, the algorithm distributes ghosts of these white lines in the whole reconstructed portion. This tends to make the reconstruction slightly lighter than the original image.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.9]{InpaintingFacade}
+\caption{Left: Original image. Middle: Deletion of a portion of texture. Right: Reconstruction of the texture\label{Facade}}
+\end{figure}
+
+
+The aim with the picture of the snowy park was to make the bank disappear by deleting all of its pixels and reconstructing them from the rest of the image. It should be noticed in \autoref{Snowy} that the right side of the reconstructed portion is lighter than the left part, and that the transition between both parts is relatively abrupt. This is an illustration of the fact that the sub-blocks are reconstructed from the boundary towards the center. The reconstruction from each side is independent from the other side, and the matching of different parts as they join can only be done on a short range (size of a MB). This can lead to relatively big gradients in the reconstructed image, when the set of contiguous fully corrupted MB is too wide.  
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.9]{InpaintingSnow}
+\caption{Left: Original image. Middle: Deletion of the bank. Right: Reconstruction without the bank.\label{Snowy}}
+\end{figure}
+
+
+
+
+\break
 \section{Conclusion}
 %\section{Suggestion for further research}
-
+\break
 \begin{thebibliography}{9}
 %\bibitem{Allan} 
 %Allan Nielsen. 
@@ -421,6 +476,8 @@ D.Kressner, M. Steinlechner and B.Vandereycken.{ \'Ecole Polytechnique F\'ed\'er
 \bibitem{SiteANCHP} \url{http://anchp.epfl.ch/geomCG}
 
 \bibitem{CIF} \url{https://media.xiph.org/video/derf/}
+\bibitem{facade} \url{http://www.briqueterie-chimot.fr/wpcproduct/la-brique-rouge-chimot/}
+\bibitem{snow} \url{http://images.forwallpaper.com/files/images/0/0249/0249d4f1/113975/winter-park-snow-bench.jpg}
 \end{thebibliography}
 
 %\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below

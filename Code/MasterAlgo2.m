@@ -39,7 +39,7 @@ n = [Mrows Mcols Mframe];
 
 K=11;
 
-R1=N/2; R2=N/2; R3=1;
+R1=N; R2=N; R3=3;
 r = [R1, R2, R3];
 
 opts = struct( 'maxiter', 60, 'tol', 1e-6, 'verbose', false );
@@ -49,7 +49,7 @@ opts = struct( 'maxiter', 60, 'tol', 1e-6, 'verbose', false );
 nbNeighbours=5; % Nb of nearest previously recovered and corrupted future frames used in the tensor building step
 % Set to -1 to use all frames
 
-nFrame_=1:15;
+nFrame_=1;
 lengthNFrame_=length(nFrame_);
 
 ErrorFro=zeros(lengthNFrame_, 1);
@@ -62,8 +62,11 @@ for iFrame=1:lengthNFrame_
     [Coordinates]=SortAllP0Tensor(N,Frame);
     nbIt=length(Coordinates);
     
+    OriginalFrame=double(OriginalMovie(:,:,nFrame));
+    
+    ErrorIt=[];
     for n=1:nbIt
-        if (mod(n,20)==1)
+        if (mod(n,50)==0)
             display(['Iteration ',num2str(n),' out of ', num2str(nbIt)]);
         end
         i=Coordinates(n,1);
@@ -81,70 +84,71 @@ for iFrame=1:lengthNFrame_
             
             [P,~]=SelectMBsTensor(RecoveredMovie,K,P0, nFrame, nbNeighbours);
             X=CreateTensorX(P0,P);
-            XSparse=CreateXSparse(P0,X);
-            
-            %[Xl, A_new]=ComputeXl(A,X);
-            %XInit=ttensor(Xl);
             KEff=size(X,3);
-            if KEff<3
-                KEff
-                pause
+            %********** Create XInit *************
+            A=InitializeA(N,KEff, R1, R2, R3);
+            %[Xl, A_new]=ComputeXl(A,X);
+            %XInit=ttensor;
+            
+            A{3}(:,1)=1/KEff*ones(KEff,1);
+            %
+            % Loop over the 3 dimensions
+            for ii=1:3
+                R{ii}=size(A{ii},2);
+                Y=X;
+                for jj=1:3
+                    if jj~=ii
+                        Y=ttm(Y,A{jj}',jj);
+                    end
+                end
+                
+                % Unfold Y in mode i
+                Yi=tenmat(Y,ii);
+                [Q,~,~]=svd(Yi.data);
+                % Construct Ai with the first Ri principal components of Yi
+                A{ii}=Q(:,1:R{ii});
             end
-%             A=InitializeA(N,KEff, R1, R2, R3);
-%             A{3}(:,1)=1/KEff*ones(KEff,1);
-%             
-%             % Loop over the 3 dimensions
-%             for i=1:3
-%                 R{i}=size(A{i},2);
-%                 Y=X;
-%                 for j=1:3
-%                     if j~=i
-%                         Y=ttm(Y,A{j}',j);
-%                     end
-%                 end
-%                 
-%                 % Unfold Y in mode i
-%                 Yi=tenmat(Y,i);
-%                 [Q,~,~]=svd(Yi.data);
-%                 % Construct Ai with the first Ri principal components of Yi
-%                 A{i}=Q(:,1:R{i});
-%             end
+            A{3}(:,1)=1/KEff*ones(KEff,1);
+            
             
             % Compute core tensor of size R1xR2xR3
-            %G=ttm(X,{A{1}',A{2}',A{3}'});
-            %XInit=ttensor(G, A{1}, A{2},A{3});
+            G=ttm(X,{A{1}',A{2}',A{3}'});
+            XInit=ttensor(G, A{1}, A{2},A{3});
+            % *****************************************
             
-            XInit=makeRandTensor([N,N,KEff],r);
+            %XInit=makeRandTensor([N,N,KEff],r);
+            XSparse=CreateXSparse(P0,X);
             
             [resX, ~, ~] = geomCG( XSparse, XInit, [], opts);
             resX=double(resX);
-            P0_new=resX(:,:,1);
-            %min(min(P0_new))
-            %pause
-            %[P0_new, err]=RecoverSubBlockTensor(RecoveredMovie,P0, K, R1, R2, R3, sigma, sigmaIterative, itMax,nFrame, nbNeighbours);
+            P0_new=P0.*(P0>=0)+resX(:,:,1).*(P0<0);
+            % pause
             % Copy only pixels which are not part of Omega
-            P0_new(P0>=0)=P0(P0>=0);
+            %P0_new(P0>=0)=P0(P0>=0);
             RecoveredMovie(i:i+N-1, j:j+N-1,nFrame)=P0_new;
             Frame(i:i+N-1, j:j+N-1)=P0_new;
+            
+            P0_orgn=OriginalFrame(i:i+N-1, j:j+N-1);
+            ErrorIt(end+1)=FrobeniusRelativeError(P0_orgn, P0_new);
         end
     end
-    OriginalFrame=double(OriginalMovie(:,:,nFrame));
     
-    ErrorFro(iFrame)=FrobeniusRelativeError(OriginalFrame, Frame);
-    %PSNR(iFrame)=psnr(Frame, OriginalFrame);
-    
-    %S=svd(Frame);
-    %SVErrorEstimate=SingularValueErrorEstimate(Frame, R3);
+    ErrorFrame(iFrame)=mean(ErrorIt);
 end
 
-filename=['../Results/ComparisonBusAlgo2ReducedRank.mat'];
-%save(filename, 'ErrorFro','RecoveredMovie');
+filename=['../Results/GeomCG_NN1.mat'];
+%save(filename, 'ErrorFrame','RecoveredMovie');
+
 
 figure
+for i=1:lengthNFrame_
 subplot(1,2,1)
-imshow(double(RecoveredMovie(:,:,1)))
+imshow(double(RecoveredMovie(:,:,i)))
 subplot(1,2,2)
-imshow(double(CorruptedMovie(:,:,1)))
+imshow(double(CorruptedMovie(:,:,i)))
+drawnow
+pause
+end
 
 %filename=['Algo2_Bus_N',num2str(N), '.mat'];
 %save(filename, 'ErrorFro', 'PSNR', 'RecoveredMovie');
@@ -153,7 +157,7 @@ imshow(double(CorruptedMovie(:,:,1)))
 figure
 %plot(nFrame_,PSNR, '-*r');
 %hold on;
-plot(nFrame_,ErrorFro*100, '--*b');
+plot(nFrame_,ErrorFrame, '--*b');
 xlabel('Frame index');
 ylabel('Relative error (Frobenius norm)');
 %legend('PSNR (dB)','||A_{restored}-A||_F/||A||_F (%)');

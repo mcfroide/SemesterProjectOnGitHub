@@ -11,4 +11,4 @@ OriginalMovie=OriginalMovie(10:160, 25:230,: );
 
 CorruptedMovie=CorruptRandomly(OriginalMovie, N/2, 0.15);
 
-save('BusCorrupted&CropedMovieN16p015.mat','OriginalMovie','CorruptedMovie');
+%save('BusCorrupted&CropedMovieN16p015.mat','OriginalMovie','CorruptedMovie');

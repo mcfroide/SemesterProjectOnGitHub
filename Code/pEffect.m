@@ -11,7 +11,7 @@ addpath('./ALS/');
 
 N=16; % Size of the Macro-Block
 
-p=15;
+p=5;
 filename=['Movies/BusCorruptedMovieN16p',num2str(p),'.mat'];
 load(filename);
 
